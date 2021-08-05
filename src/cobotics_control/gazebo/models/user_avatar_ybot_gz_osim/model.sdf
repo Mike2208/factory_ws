@@ -1,0 +1,237 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <model name="skeleton_model">
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+        <static>true</static>
+        <link name="ground_ribs">
+            <pose>0.0 1.8 0.0 0.0 -1.57 0.0</pose>
+            <inertial>
+                <mass>10.0</mass>
+                <inertia>
+                    <ixx>1.0</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1.0</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1.0</izz>
+                </inertia>
+            </inertial>
+
+            <collision name="ground_ribs">
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_ribs.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_ribs">
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_ribs.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+           <!--<collision name="ground_spine">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_spine.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_spine">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_spine.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>-->
+
+          <link name="ground_skull">
+              <pose>0.0 1.8 0.0 0.0 -1.57 0.0</pose>
+              <inertial>
+                  <mass>10.0</mass>
+                  <inertia>
+                      <ixx>1.0</ixx>
+                      <ixy>0.0</ixy>
+                      <ixz>0.0</ixz>
+                      <iyy>1.0</iyy>
+                      <iyz>0.0</iyz>
+                      <izz>1.0</izz>
+                  </inertia>
+              </inertial>
+            <collision name="ground_skull">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_skull.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_skull">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_skull.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+
+        <link name="ground_jaw">
+            <pose>0.0 1.8 0.0 0.0 -1.57 0.0</pose>
+            <inertial>
+                <mass>0.2</mass>
+                <inertia>
+                    <ixx>1.0</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1.0</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1.0</izz>
+                </inertia>
+            </inertial>
+            <collision name="ground_jaw">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_jaw.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_jaw">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_jaw.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+
+        <link name="ground_r_clavicle">
+            <pose>0.0 1.8 0.0 0.0 -1.57 0.0</pose>
+            <inertial>
+                <mass>0.2</mass>
+                <inertia>
+                    <ixx>1.0</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1.0</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1.0</izz>
+                </inertia>
+            </inertial>
+            <collision name="ground_r_clavicle">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_r_clavicle.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_r_clavicle">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_r_clavicle.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+
+          <!--  <collision name="ground_r_scapula">
+                <pose>0.0 1.8 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_r_scapula.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_r_scapula">
+                <pose>0.0 1.8 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/ground_r_scapula.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>-->
+      <!--  <link name="r_humerus">
+            <pose>-0.017545 1.793 -0.17 0.0 -0.0 0.0</pose>
+            <pose>-0.017545 -0.17 -0.007 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>1.864572</mass>
+                <inertia>
+                    <ixx>0.01481</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>-0.013193</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>0.004551</izz>
+                </inertia>
+            </inertial>
+            <collision name="arm_r_humerus">
+                <pose>-0.017545 1.793 -0.17 0.0 -1.57 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/arm_r_humerus.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="arm_r_humerus">
+                <pose>-0.017545 1.793 -0.17 0.0 -1.57 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot/vtp_meshes/arm_r_humerus.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>-->
+
+        <!--<joint name="arm_r_shoulder" type="fixed">
+            <parent>ground_body</parent>
+            <child>r_humerus</child>
+            <axis>
+                <xyz>0 1 0</xyz>
+                <limit>
+                    <effort>2000.0</effort>
+                </limit>
+            </axis>
+        </joint>-->
+        <joint name="chest" type="fixed">
+            <parent>ground_body</parent>
+            <child>ground_r_clavicle</child>
+            <axis>
+                <xyz>0 1 0</xyz>
+                <limit>
+                    <effort>2000.0</effort>
+                </limit>
+            </axis>
+        </joint>
+      </model>
+  </sdf>

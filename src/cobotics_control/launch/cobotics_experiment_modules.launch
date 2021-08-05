@@ -1,0 +1,33 @@
+<launch>
+  <!-- Human description -->
+  <param name="robot_description" textfile="$(find avatar_control_plugin)/sdf/avatar_model_robot_description.urdf"/>
+
+  <!-- Gazebo setup -->
+  <group ns="/gazebo">
+    <arg name="modules" default="[ prednet_segmentation, saliency_module ]"/>
+    <param name="modules" type="yaml" value="$(arg modules)"/>
+  </group>
+ 
+  <include file="$(find gazebo_ros_vglrun)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find cobotics_control)/worlds/cobotics_osim_control_segmentation.sdf"/>
+    <arg name="extra_gazebo_args" value="-s WorldStepControlPlugin.so $(arg extra_gazebo_args)"/>
+    <arg name="use_clock_frequency" value="true"/>
+  </include>
+
+  <!-- Spawn Cameras -->
+  <include file="$(find cobotics_control)/launch/spawn_camera.launch">
+    <arg name="camera_ns" value="fake_camera"/>
+  </include>
+  <include file="$(find cobotics_control)/launch/spawn_camera.launch"/>
+
+  <!-- Saliency Module -->
+  <arg name="saliency_gpu_factor" default="0.4"/>
+  <param name="saliency_gpu_factor" type="double" value="$(arg saliency_gpu_factor)"/>
+
+  <node name="saliency_module" pkg="saliency_module" type="saliency.sh" output="screen"/>
+
+  <!-- Segmentation Module -->
+  <arg name="segmentation_gpu_factor" default="0.4"/>
+  <param name="segmentation_gpu_factor" type="double" value="$(arg segmentation_gpu_factor)"/>
+  <node name="prednet_segmentation" pkg="prednet_segmentation" type="prednet.sh"/>
+</launch>

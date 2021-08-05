@@ -1,0 +1,22 @@
+<launch>
+  <param name="robot_description" textfile="$(find avatar_control_plugin)/sdf/avatar_model_robot_description.urdf"/>
+  <arg name="extra_gazebo_args" default=""/>
+
+  <group ns="/gazebo">
+    <arg name="modules" default="[ ]"/>
+    <param name="modules" type="yaml" value="$(arg modules)"/>
+    <include file="$(find cobotics_control)/launch/osim_gz_joints_config.launch"/>
+  </group>
+ 
+  <include file="$(find gazebo_ros_vglrun)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find cobotics_control)/worlds/cobotics_skeleton_cyl_control.sdf"/>
+    <arg name="extra_gazebo_args" value="-s WorldStepControlPlugin.so $(arg extra_gazebo_args)"/>
+    <arg name="use_clock_frequency" value="true"/>
+    <arg name="pub_clock_frequency" value="500"/>
+    <arg name="vglrun" value="true"/>
+    <!-- <arg name="physics" value="bullet"/> -->
+  </include>
+
+  <!-- <node name="run_osim" pkg="edlut_ros_osim" type="run_edlut_osim.sh" args="osim_visualization:=false" output="screen"/> -->
+
+</launch>

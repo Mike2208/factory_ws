@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera">
+  <xacro:arg name="cam_topic" default="camera"/>
+  
+  <xacro:arg name="enable_visual" default="1"/>
+  <xacro:arg name="enable_collision" default="0"/>
+  <xacro:arg name="is_static" default="1"/>
+  <xacro:arg name="update_rate" default="30.0"/>
+  <xacro:arg name="width" default="320"/>
+  <xacro:arg name="height" default="240"/>
+  <xacro:arg name="fov" default="1.3962634"/>
+  <xacro:arg name="format" default="R8G8B8"/>
+
+  <!-- Camera Link -->
+  <link name="base">
+    <xacro:if value="$(arg enable_visual)">
+      <visual>
+	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	      <geometry>
+	        <box size="0.1 0.05 0.05"/>
+	      </geometry>
+	      <material name="gray"/>
+      </visual>
+    </xacro:if>
+    <xacro:if value="$(arg enable_collision)">
+      <collision>
+	      <geometry>
+	        <box size="0.05 0.05 0.1"/>
+  	    </geometry>
+      </collision>
+    </xacro:if>
+    <inertial>
+	    <mass value="0.2" />
+	    <inertia ixx="0.00020833" ixy="0.0" ixz="0.0"
+		      iyy="0.00020833" iyz="0.0"
+		      izz="0.0000833" />
+    </inertial>
+  </link>
+
+  <xacro:if value="$(arg is_static)">
+    <gazebo>
+      <static>true</static>
+    </gazebo>
+  </xacro:if>
+
+  <gazebo reference="base">
+    <!-- Gazebo Camera Plugin -->
+    <sensor type="$(arg cam_topic)" name="camera_sensor">
+      <update_rate>$(arg update_rate)</update_rate>
+      <camera>
+        <horizontal_fov>$(arg fov)</horizontal_fov>
+        <image>
+          <format>$(arg format)</format>
+          <width>$(arg width)</width>
+          <height>$(arg height)</height>
+        </image>
+        <clip>
+          <near>0.01</near>
+          <far>100</far>
+        </clip>
+      </camera>
+    </sensor>
+  </gazebo>
+</robot>

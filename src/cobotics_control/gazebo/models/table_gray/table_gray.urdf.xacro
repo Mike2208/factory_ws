@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="table_gray">
+    <xacro:arg name="enable_collision" default="true"/>
+    <xacro:arg name="robot_ns" default="!"/>
+    <xacro:if value="${'$(arg robot_ns)' != '!'}">
+        <xacro:property name="robot_namespace" value="$(arg robot_ns)::"/>
+    </xacro:if>
+    <xacro:unless value="${'$(arg robot_ns)' != '!'}">
+        <xacro:property name="robot_namespace" value=""/>
+    </xacro:unless>
+    <link name="${robot_namespace}base_link"/>
+    <link name="${robot_namespace}base">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.1 0 0.07" />
+            <mass value="5" />
+            <inertia ixx="0.05" ixy="0" ixz="0" iyy="0.06" iyz="0" izz="0.03" />
+        </inertial>
+
+        <visual>
+            <geometry>
+                <mesh filename="package://cobotics_control/gazebo/models/table_gray/table.dae" />
+            </geometry>
+        </visual>
+        <xacro:if value="$(arg enable_collision)">
+        <collision>
+            <geometry>
+                <mesh filename="package://cobotics_control/gazebo/models/table_gray/table.dae" />
+            </geometry>
+        </collision>
+        </xacro:if>
+    </link>
+    <joint name="base_joint" type="fixed">
+        <parent link="${robot_namespace}base_link" />
+        <child link="${robot_namespace}base" />
+    </joint>
+    <gazebo>
+        <static>true</static>
+    </gazebo>
+</robot>

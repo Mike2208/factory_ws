@@ -1,0 +1,2 @@
+factory_scene.dae filter=lfs diff=lfs merge=lfs -text
+desk.dae filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,2298 @@
+<?xml version="1.0" ?>
+<robot name="avatar_ybot">
+  <joint name="mixamorig_Spine" type="fixed">
+    <parent link="mixamorig_Hips"/>
+    <child link="mixamorig_Spine"/>
+    <origin xyz="0      0.0098  1.09595" rpy="1.57079 0      0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.17453292519943295" upper="0.17453292519943295" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_Spine1" type="fixed">
+    <parent link="mixamorig_Spine"/>
+    <child link="mixamorig_Spine1"/>
+    <origin xyz="0       0.11645 -0.01422" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.17453292519943295" upper="0.17453292519943295" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_Spine2" type="fixed">
+    <parent link="mixamorig_Spine1"/>
+    <child link="mixamorig_Spine2"/>
+    <origin xyz="0       0.1336  -0.01626" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.17453292519943295" upper="0.17453292519943295" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_Neck" type="fixed">
+    <parent link="mixamorig_Spine2"/>
+    <child link="mixamorig_Neck"/>
+    <origin xyz="0      0.15032 0.00792" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_Head" type="fixed">
+    <parent link="mixamorig_Neck"/>
+    <child link="mixamorig_Head"/>
+    <origin xyz="0      0.10321 0.03142" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_HeadTop_End" type="fixed">
+    <parent link="mixamorig_Head"/>
+    <child link="mixamorig_HeadTop_End"/>
+    <origin xyz="0      0.18474 0.06636" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftEye" type="fixed">
+    <parent link="mixamorig_Head"/>
+    <child link="mixamorig_LeftEye"/>
+    <origin xyz="0.02947 0.07681 0.0912" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightEye" type="fixed">
+    <parent link="mixamorig_Head"/>
+    <child link="mixamorig_RightEye"/>
+    <origin xyz="-0.02944  0.07681  0.0912" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftShoulder" type="fixed">
+    <parent link="mixamorig_Spine2"/>
+    <child link="mixamorig_LeftShoulder"/>
+    <origin xyz="0.06105 0.0911  0.00705" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftArm_z" type="fixed">
+    <parent link="mixamorig_LeftShoulder"/>
+    <child link="mixamorig_LeftArm_JointLink1"/>
+    <origin xyz="0.12655 -0.00265 -0.026" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftArm_x" type="fixed">
+    <parent link="mixamorig_LeftArm_JointLink1"/>
+    <child link="mixamorig_LeftArm_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftArm_y" type="fixed">
+    <parent link="mixamorig_LeftArm_JointLink2"/>
+    <child link="mixamorig_LeftArm"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftForeArm" type="revolute">
+    <parent link="mixamorig_LeftArm"/>
+    <child link="mixamorig_LeftForeArm"/>
+    <origin xyz="0.27404 0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="3.14" effort="600.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHand_z" type="fixed">
+    <parent link="mixamorig_LeftForeArm"/>
+    <child link="mixamorig_LeftHand_JointLink1"/>
+    <origin xyz="0.27614 0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHand_x" type="fixed">
+    <parent link="mixamorig_LeftHand_JointLink1"/>
+    <child link="mixamorig_LeftHand_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHand_y" type="fixed">
+    <parent link="mixamorig_LeftHand_JointLink2"/>
+    <child link="mixamorig_LeftHand"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandMiddle1" type="revolute">
+    <parent link="mixamorig_LeftHand"/>
+    <child link="mixamorig_LeftHandMiddle1"/>
+    <origin xyz="0.12775 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandMiddle2" type="revolute">
+    <parent link="mixamorig_LeftHandMiddle1"/>
+    <child link="mixamorig_LeftHandMiddle2"/>
+    <origin xyz="0.03614 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandMiddle3" type="revolute">
+    <parent link="mixamorig_LeftHandMiddle2"/>
+    <child link="mixamorig_LeftHandMiddle3"/>
+    <origin xyz="0.03459 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandMiddle4" type="fixed">
+    <parent link="mixamorig_LeftHandMiddle3"/>
+    <child link="mixamorig_LeftHandMiddle4"/>
+    <origin xyz="0.0368 0     0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb1_z" type="revolute">
+    <parent link="mixamorig_LeftHand"/>
+    <child link="mixamorig_LeftHandThumb1_JointLink1"/>
+    <origin xyz="0.03788 -0.02167  0.03003" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb1_x" type="revolute">
+    <parent link="mixamorig_LeftHandThumb1_JointLink1"/>
+    <child link="mixamorig_LeftHandThumb1_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb1_y" type="revolute">
+    <parent link="mixamorig_LeftHandThumb1_JointLink2"/>
+    <child link="mixamorig_LeftHandThumb1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb2" type="revolute">
+    <parent link="mixamorig_LeftHandThumb1"/>
+    <child link="mixamorig_LeftHandThumb2"/>
+    <origin xyz="0.03675 -0.02122  0.02122" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb3" type="revolute">
+    <parent link="mixamorig_LeftHandThumb2"/>
+    <child link="mixamorig_LeftHandThumb3"/>
+    <origin xyz="0.03394 -0.01959  0.01959" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandThumb4" type="fixed">
+    <parent link="mixamorig_LeftHandThumb3"/>
+    <child link="mixamorig_LeftHandThumb4"/>
+    <origin xyz="0.02679 -0.01546  0.01546" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandIndex1" type="revolute">
+    <parent link="mixamorig_LeftHand"/>
+    <child link="mixamorig_LeftHandIndex1"/>
+    <origin xyz="0.12266 -0.00231  0.02822" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandIndex2" type="revolute">
+    <parent link="mixamorig_LeftHandIndex1"/>
+    <child link="mixamorig_LeftHandIndex2"/>
+    <origin xyz="0.03892 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandIndex3" type="revolute">
+    <parent link="mixamorig_LeftHandIndex2"/>
+    <child link="mixamorig_LeftHandIndex3"/>
+    <origin xyz="0.03415 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandIndex4" type="fixed">
+    <parent link="mixamorig_LeftHandIndex3"/>
+    <child link="mixamorig_LeftHandIndex4"/>
+    <origin xyz="0.03078 0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandRing1" type="revolute">
+    <parent link="mixamorig_LeftHand"/>
+    <child link="mixamorig_LeftHandRing1"/>
+    <origin xyz="1.2147e-01  9.0000e-05 -2.2160e-02" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandRing2" type="revolute">
+    <parent link="mixamorig_LeftHandRing1"/>
+    <child link="mixamorig_LeftHandRing2"/>
+    <origin xyz="0.03601 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandRing3" type="revolute">
+    <parent link="mixamorig_LeftHandRing2"/>
+    <child link="mixamorig_LeftHandRing3"/>
+    <origin xyz="0.03307 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandRing4" type="fixed">
+    <parent link="mixamorig_LeftHandRing3"/>
+    <child link="mixamorig_LeftHandRing4"/>
+    <origin xyz="0.0366 0     0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandPinky1" type="revolute">
+    <parent link="mixamorig_LeftHand"/>
+    <child link="mixamorig_LeftHandPinky1"/>
+    <origin xyz="0.10908 -0.00226 -0.04725" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandPinky2" type="revolute">
+    <parent link="mixamorig_LeftHandPinky1"/>
+    <child link="mixamorig_LeftHandPinky2"/>
+    <origin xyz="0.04136 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandPinky3" type="revolute">
+    <parent link="mixamorig_LeftHandPinky2"/>
+    <child link="mixamorig_LeftHandPinky3"/>
+    <origin xyz="0.02594 0      0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftHandPinky4" type="fixed">
+    <parent link="mixamorig_LeftHandPinky3"/>
+    <child link="mixamorig_LeftHandPinky4"/>
+    <origin xyz="0.02923 0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightShoulder" type="fixed">
+    <parent link="mixamorig_Spine2"/>
+    <child link="mixamorig_RightShoulder"/>
+    <origin xyz="-0.06105  0.0911   0.00705" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightArm_z" type="fixed">
+    <parent link="mixamorig_RightShoulder"/>
+    <child link="mixamorig_RightArm_JointLink1"/>
+    <origin xyz="-0.12655 -0.00266 -0.026" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="2000.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightArm_x" type="fixed">
+    <parent link="mixamorig_RightArm_JointLink1"/>
+    <child link="mixamorig_RightArm_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="2000.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightArm_y" type="fixed">
+    <parent link="mixamorig_RightArm_JointLink2"/>
+    <child link="mixamorig_RightArm"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="2000.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightForeArm" type="revolute">
+    <parent link="mixamorig_RightArm"/>
+    <child link="mixamorig_RightForeArm"/>
+    <origin xyz="-0.27404  0       0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="0.0" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHand_z" type="fixed">
+    <parent link="mixamorig_RightForeArm"/>
+    <child link="mixamorig_RightHand_JointLink1"/>
+    <origin xyz="-0.27614  0       0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHand_x" type="fixed">
+    <parent link="mixamorig_RightHand_JointLink1"/>
+    <child link="mixamorig_RightHand_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHand_y" type="fixed">
+    <parent link="mixamorig_RightHand_JointLink2"/>
+    <child link="mixamorig_RightHand"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="400.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandMiddle1" type="revolute">
+    <parent link="mixamorig_RightHand"/>
+    <child link="mixamorig_RightHandMiddle1"/>
+    <origin xyz="-0.12775  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandMiddle2" type="revolute">
+    <parent link="mixamorig_RightHandMiddle1"/>
+    <child link="mixamorig_RightHandMiddle2"/>
+    <origin xyz="-0.03614  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandMiddle3" type="revolute">
+    <parent link="mixamorig_RightHandMiddle2"/>
+    <child link="mixamorig_RightHandMiddle3"/>
+    <origin xyz="-0.03459  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandMiddle4" type="fixed">
+    <parent link="mixamorig_RightHandMiddle3"/>
+    <child link="mixamorig_RightHandMiddle4"/>
+    <origin xyz="-0.0368  0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb1_z" type="revolute">
+    <parent link="mixamorig_RightHand"/>
+    <child link="mixamorig_RightHandThumb1_JointLink1"/>
+    <origin xyz="-0.03788 -0.02167  0.03003" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb1_x" type="revolute">
+    <parent link="mixamorig_RightHandThumb1_JointLink1"/>
+    <child link="mixamorig_RightHandThumb1_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb1_y" type="revolute">
+    <parent link="mixamorig_RightHand_JointLink2"/>
+    <child link="mixamorig_RightHandThumb1"/>
+    <origin xyz="-0.03788 -0.02167  0.03003" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb2" type="revolute">
+    <parent link="mixamorig_RightHandThumb1"/>
+    <child link="mixamorig_RightHandThumb2"/>
+    <origin xyz="-0.03675 -0.02122  0.02122" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb3" type="revolute">
+    <parent link="mixamorig_RightHandThumb2"/>
+    <child link="mixamorig_RightHandThumb3"/>
+    <origin xyz="-0.03394 -0.01959  0.01959" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandThumb4" type="fixed">
+    <parent link="mixamorig_RightHandThumb3"/>
+    <child link="mixamorig_RightHandThumb4"/>
+    <origin xyz="-0.02679 -0.01546  0.01546" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandIndex1" type="revolute">
+    <parent link="mixamorig_RightHand"/>
+    <child link="mixamorig_RightHandIndex1"/>
+    <origin xyz="-0.12266 -0.00231  0.02822" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandIndex2" type="revolute">
+    <parent link="mixamorig_RightHandIndex1"/>
+    <child link="mixamorig_RightHandIndex2"/>
+    <origin xyz="-0.03892  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandIndex3" type="revolute">
+    <parent link="mixamorig_RightHandIndex2"/>
+    <child link="mixamorig_RightHandIndex3"/>
+    <origin xyz="-0.03415  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandIndex4" type="fixed">
+    <parent link="mixamorig_RightHandIndex3"/>
+    <child link="mixamorig_RightHandIndex4"/>
+    <origin xyz="-0.03078  0       0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandRing1" type="revolute">
+    <parent link="mixamorig_RightHand"/>
+    <child link="mixamorig_RightHandRing1"/>
+    <origin xyz="-1.2147e-01  9.0000e-05 -2.2160e-02" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandRing2" type="revolute">
+    <parent link="mixamorig_RightHandRing1"/>
+    <child link="mixamorig_RightHandRing2"/>
+    <origin xyz="-0.03601  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandRing3" type="revolute">
+    <parent link="mixamorig_RightHandRing2"/>
+    <child link="mixamorig_RightHandRing3"/>
+    <origin xyz="-0.03307  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandRing4" type="fixed">
+    <parent link="mixamorig_RightHandRing3"/>
+    <child link="mixamorig_RightHandRing4"/>
+    <origin xyz="-0.0366  0      0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandPinky1" type="revolute">
+    <parent link="mixamorig_RightHand"/>
+    <child link="mixamorig_RightHandPinky1"/>
+    <origin xyz="-0.10908 -0.00226 -0.04725" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandPinky2" type="revolute">
+    <parent link="mixamorig_RightHandPinky1"/>
+    <child link="mixamorig_RightHandPinky2"/>
+    <origin xyz="-0.04136  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandPinky3" type="revolute">
+    <parent link="mixamorig_RightHandPinky2"/>
+    <child link="mixamorig_RightHandPinky3"/>
+    <origin xyz="-0.02594  0       0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightHandPinky4" type="fixed">
+    <parent link="mixamorig_RightHandPinky3"/>
+    <child link="mixamorig_RightHandPinky4"/>
+    <origin xyz="-0.02923  0       0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="200.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightUpLeg_z" type="fixed">
+    <parent link="mixamorig_Hips"/>
+    <child link="mixamorig_RightUpLeg_JointLink1"/>
+    <origin xyz="-0.09124 -0.00191  0.93015" rpy="1.57079 0      0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightUpLeg_x" type="fixed">
+    <parent link="mixamorig_RightUpLeg_JointLink1"/>
+    <child link="mixamorig_RightUpLeg_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightUpLeg_y" type="fixed">
+    <parent link="mixamorig_RightUpLeg_JointLink2"/>
+    <child link="mixamorig_RightUpLeg"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="1500.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightLeg" type="revolute">
+    <parent link="mixamorig_RightUpLeg"/>
+    <child link="mixamorig_RightLeg"/>
+    <origin xyz="-0.00244 -0.40595 -0.00514" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightFoot" type="fixed">
+    <parent link="mixamorig_RightLeg"/>
+    <child link="mixamorig_RightFoot"/>
+    <origin xyz="0.00244 -0.42047 -0.0206" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightToeBase" type="fixed">
+    <parent link="mixamorig_RightFoot"/>
+    <child link="mixamorig_RightToeBase"/>
+    <origin xyz="-0.00373 -0.10492  0.1264" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_RightToe_End" type="fixed">
+    <parent link="mixamorig_RightToeBase"/>
+    <child link="mixamorig_RightToe_End"/>
+    <origin xyz="0      0      0.09992" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftUpLeg_z" type="fixed">
+    <parent link="mixamorig_Hips"/>
+    <child link="mixamorig_LeftUpLeg_JointLink1"/>
+    <origin xyz="0.09124 -0.00191  0.93015" rpy="1.57079 0      0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftUpLeg_x" type="fixed">
+    <parent link="mixamorig_LeftUpLeg_JointLink1"/>
+    <child link="mixamorig_LeftUpLeg_JointLink2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.0" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftUpLeg_y" type="fixed">
+    <parent link="mixamorig_LeftUpLeg_JointLink2"/>
+    <child link="mixamorig_LeftUpLeg"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftLeg" type="revolute">
+    <parent link="mixamorig_LeftUpLeg"/>
+    <child link="mixamorig_LeftLeg"/>
+    <origin xyz="0.00244 -0.40595 -0.00517" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="800.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftFoot" type="fixed">
+    <parent link="mixamorig_LeftLeg"/>
+    <child link="mixamorig_LeftFoot"/>
+    <origin xyz="-0.00244 -0.42048 -0.02057" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftToeBase" type="fixed">
+    <parent link="mixamorig_LeftFoot"/>
+    <child link="mixamorig_LeftToeBase"/>
+    <origin xyz="0.00373 -0.10492  0.1264" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="mixamorig_LeftToe_End" type="fixed">
+    <parent link="mixamorig_LeftToeBase"/>
+    <child link="mixamorig_LeftToe_End"/>
+    <origin xyz="0      0      0.09992" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="0.0" velocity="0.0"/>
+  </joint>
+  <link name="mixamorig_Hips">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.009_convex_hull">
+      <origin xyz="0 0 0" rpy="1.57079 0      0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_009_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.009">
+      <origin xyz="0 0 0" rpy="1.57079 0      0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_009.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_Spine">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.001_convex_hull">
+      <origin xyz="0      -1.09595  0.0098" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_001_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints">
+      <origin xyz="0      -1.09595  0.0098" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_Spine1">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.002_convex_hull">
+      <origin xyz="0      -1.21241  0.02402" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_002_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.010_convex_hull">
+      <origin xyz="0      -1.21241  0.02402" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_010_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.002">
+      <origin xyz="0      -1.21241  0.02402" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_002.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.010">
+      <origin xyz="0      -1.21241  0.02402" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_010.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_Spine2">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.011_convex_hull">
+      <origin xyz="0      -1.34601  0.04029" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_011_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.011">
+      <origin xyz="0      -1.34601  0.04029" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_011.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_Neck">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.003_convex_hull">
+      <origin xyz="0      -1.49633  0.03236" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_003_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.003">
+      <origin xyz="0      -1.49633  0.03236" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_003.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_Head">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.012_convex_hull">
+      <origin xyz="0.00000e+00 -1.59955e+00  9.30000e-04" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_012_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.012">
+      <origin xyz="0.00000e+00 -1.59955e+00  9.30000e-04" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_012.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_HeadTop_End">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftEye">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightEye">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftShoulder">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.008_convex_hull">
+      <origin xyz="-0.06105 -1.43711  0.03323" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_008_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.008">
+      <origin xyz="-0.06105 -1.43711  0.03323" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_008.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftArm">
+    <inertial>
+      <mass value="2.63"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.013_convex_hull">
+      <origin xyz="-0.1876  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_013_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.013">
+      <origin xyz="-0.1876  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_013.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftArm_JointLink1">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftArm_JointLink2">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftForeArm">
+    <inertial>
+      <mass value="1.82"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.014_convex_hull">
+      <origin xyz="-0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_014_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.009_convex_hull">
+      <origin xyz="-0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_009_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.014">
+      <origin xyz="-0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_014.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.009">
+      <origin xyz="-0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_009.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHand">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.015_convex_hull">
+      <origin xyz="-0.7378  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_015_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.010_convex_hull">
+      <origin xyz="-0.7378  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_010_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.015">
+      <origin xyz="-0.7378  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_015.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.010">
+      <origin xyz="-0.7378  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_010.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHand_JointLink1">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHand_JointLink2">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandMiddle1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.020_convex_hull">
+      <origin xyz="-0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_020_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.017_convex_hull">
+      <origin xyz="-0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_017_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.020">
+      <origin xyz="-0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_020.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.017">
+      <origin xyz="-0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_017.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandMiddle2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.025_convex_hull">
+      <origin xyz="-0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_025_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.018_convex_hull">
+      <origin xyz="-0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_018_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.025">
+      <origin xyz="-0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_025.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.018">
+      <origin xyz="-0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_018.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandMiddle3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.028_convex_hull">
+      <origin xyz="-0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_028_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.019_convex_hull">
+      <origin xyz="-0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_019_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.028">
+      <origin xyz="-0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_028.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.019">
+      <origin xyz="-0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_019.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandMiddle4">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandThumb1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.016_convex_hull">
+      <origin xyz="-0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_016_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.013_convex_hull">
+      <origin xyz="-0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_013_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.016">
+      <origin xyz="-0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_016.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.013">
+      <origin xyz="-0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_013.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandThumb1_JointLink1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandThumb1_JointLink2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandThumb2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.017_convex_hull">
+      <origin xyz="-0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_017_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.012_convex_hull">
+      <origin xyz="-0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_012_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.017">
+      <origin xyz="-0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_017.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.012">
+      <origin xyz="-0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_012.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandThumb3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.018_convex_hull">
+      <origin xyz="-0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_018_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.011_convex_hull">
+      <origin xyz="-0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_011_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.018">
+      <origin xyz="-0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_018.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.011">
+      <origin xyz="-0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_011.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandThumb4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandIndex1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.019_convex_hull">
+      <origin xyz="-0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_019_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.016_convex_hull">
+      <origin xyz="-0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_016_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.019">
+      <origin xyz="-0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_019.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.016">
+      <origin xyz="-0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_016.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandIndex2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.026_convex_hull">
+      <origin xyz="-0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_026_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.015_convex_hull">
+      <origin xyz="-0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_015_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.026">
+      <origin xyz="-0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_026.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.015">
+      <origin xyz="-0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_015.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandIndex3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.027_convex_hull">
+      <origin xyz="-0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_027_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.014_convex_hull">
+      <origin xyz="-0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_014_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.027">
+      <origin xyz="-0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_027.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.014">
+      <origin xyz="-0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_014.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandIndex4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandRing1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.021_convex_hull">
+      <origin xyz="-0.85927 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_021_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.020_convex_hull">
+      <origin xyz="-0.85927 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_020_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.021">
+      <origin xyz="-0.85927 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_021.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.020">
+      <origin xyz="-0.85927 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_020.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandRing2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.024_convex_hull">
+      <origin xyz="-0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_024_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.021_convex_hull">
+      <origin xyz="-0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_021_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.024">
+      <origin xyz="-0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_024.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.021">
+      <origin xyz="-0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_021.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandRing3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.029_convex_hull">
+      <origin xyz="-0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_029_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.022_convex_hull">
+      <origin xyz="-0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_022_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.029">
+      <origin xyz="-0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_029.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.022">
+      <origin xyz="-0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_022.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandRing4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftHandPinky1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.022_convex_hull">
+      <origin xyz="-0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_022_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.023_convex_hull">
+      <origin xyz="-0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_023_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.022">
+      <origin xyz="-0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_022.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.023">
+      <origin xyz="-0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_023.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandPinky2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.023_convex_hull">
+      <origin xyz="-0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_023_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.024_convex_hull">
+      <origin xyz="-0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_024_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.023">
+      <origin xyz="-0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_023.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.024">
+      <origin xyz="-0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_024.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandPinky3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.030_convex_hull">
+      <origin xyz="-0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_030_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.025_convex_hull">
+      <origin xyz="-0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_025_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.030">
+      <origin xyz="-0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_030.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.025">
+      <origin xyz="-0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_025.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftHandPinky4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightShoulder">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.026_convex_hull">
+      <origin xyz="0.06105 -1.43711  0.03323" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_026_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.026">
+      <origin xyz="0.06105 -1.43711  0.03323" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_026.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightArm">
+    <inertial>
+      <mass value="2.63"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.031_convex_hull">
+      <origin xyz="0.1876  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_031_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.031">
+      <origin xyz="0.1876  -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_031.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightArm_JointLink1">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightArm_JointLink2">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightForeArm">
+    <inertial>
+      <mass value="1.82"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.032_convex_hull">
+      <origin xyz="0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_032_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.027_convex_hull">
+      <origin xyz="0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_027_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.032">
+      <origin xyz="0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_032.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.027">
+      <origin xyz="0.46165 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_027.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHand">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.033_convex_hull">
+      <origin xyz="0.73779 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_033_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.028_convex_hull">
+      <origin xyz="0.73779 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_028_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.033">
+      <origin xyz="0.73779 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_033.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.028">
+      <origin xyz="0.73779 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_028.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHand_JointLink1">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHand_JointLink2">
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandMiddle1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.038_convex_hull">
+      <origin xyz="0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_038_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.035_convex_hull">
+      <origin xyz="0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_035_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.038">
+      <origin xyz="0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_038.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.035">
+      <origin xyz="0.86555 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_035.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandMiddle2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.043_convex_hull">
+      <origin xyz="0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_043_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.036_convex_hull">
+      <origin xyz="0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_036_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.043">
+      <origin xyz="0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_043.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.036">
+      <origin xyz="0.90169 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_036.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandMiddle3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.047_convex_hull">
+      <origin xyz="0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_047_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.037_convex_hull">
+      <origin xyz="0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_037_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.047">
+      <origin xyz="0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_047.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.037">
+      <origin xyz="0.93629 -1.43445  0.05924" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_037.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandMiddle4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandThumb1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.034_convex_hull">
+      <origin xyz="0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_034_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.031_convex_hull">
+      <origin xyz="0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_031_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.034">
+      <origin xyz="0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_034.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.031">
+      <origin xyz="0.77568 -1.41278  0.02921" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_031.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandThumb1_JointLink1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandThumb1_JointLink2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandThumb2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.030_convex_hull">
+      <origin xyz="0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_030_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.035_convex_hull">
+      <origin xyz="0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_035_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.030">
+      <origin xyz="0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_030.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.035">
+      <origin xyz="0.81244 -1.39156  0.00799" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_035.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandThumb3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.036_convex_hull">
+      <origin xyz="0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_036_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.029_convex_hull">
+      <origin xyz="0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_029_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.036">
+      <origin xyz="0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_036.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.029">
+      <origin xyz="0.84638 -1.37197 -0.0116" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_029.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandThumb4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandIndex1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.037_convex_hull">
+      <origin xyz="0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_037_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.034_convex_hull">
+      <origin xyz="0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_034_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.037">
+      <origin xyz="0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_037.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.034">
+      <origin xyz="0.86046 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_034.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandIndex2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.044_convex_hull">
+      <origin xyz="0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_044_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.033_convex_hull">
+      <origin xyz="0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_033_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.044">
+      <origin xyz="0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_044.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.033">
+      <origin xyz="0.89938 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_033.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandIndex3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.048_convex_hull">
+      <origin xyz="0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_048_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.032_convex_hull">
+      <origin xyz="0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_032_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.048">
+      <origin xyz="0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_048.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.032">
+      <origin xyz="0.93353 -1.43214  0.03102" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_032.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandIndex4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandRing1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.039_convex_hull">
+      <origin xyz="0.85926 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_039_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.038_convex_hull">
+      <origin xyz="0.85926 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_038_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.039">
+      <origin xyz="0.85926 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_039.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.038">
+      <origin xyz="0.85926 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_038.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandRing2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.042_convex_hull">
+      <origin xyz="0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_042_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.039_convex_hull">
+      <origin xyz="0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_039_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.042">
+      <origin xyz="0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_042.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.039">
+      <origin xyz="0.89528 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_039.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandRing3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.046_convex_hull">
+      <origin xyz="0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_046_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.040_convex_hull">
+      <origin xyz="0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_040_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.046">
+      <origin xyz="0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_046.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.040">
+      <origin xyz="0.92835 -1.43455  0.08141" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_040.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandRing4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightHandPinky1">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.040_convex_hull">
+      <origin xyz="0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_040_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.041_convex_hull">
+      <origin xyz="0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_041_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.040">
+      <origin xyz="0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_040.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.041">
+      <origin xyz="0.84688 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_041.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandPinky2">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.041_convex_hull">
+      <origin xyz="0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_041_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.042_convex_hull">
+      <origin xyz="0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_042_convex_hull.dae" scale="0.009999999776482582 0.009999998845160007 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.041">
+      <origin xyz="0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_041.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.042">
+      <origin xyz="0.88824 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_042.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandPinky3">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.045_convex_hull">
+      <origin xyz="0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_045_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.043_convex_hull">
+      <origin xyz="0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_043_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.045">
+      <origin xyz="0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_045.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.043">
+      <origin xyz="0.91419 -1.43219  0.1065" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_043.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightHandPinky4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightUpLeg">
+    <inertial>
+      <mass value="7.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.008_convex_hull">
+      <origin xyz="0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_008_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.050_convex_hull">
+      <origin xyz="0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_050_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.008">
+      <origin xyz="0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_008.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.050">
+      <origin xyz="0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_050.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightUpLeg_JointLink1">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightUpLeg_JointLink2">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_RightLeg">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.046_convex_hull">
+      <origin xyz="0.09369 -0.5242   0.00322" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_046_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.005_convex_hull">
+      <origin xyz="0.09369 -0.5242   0.00322" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_005_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.046">
+      <origin xyz="0.09369 -0.5242   0.00322" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_046.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.005">
+      <origin xyz="0.09369 -0.5242   0.00322" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_005.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightFoot">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.045_convex_hull">
+      <origin xyz="0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_045_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.004_convex_hull">
+      <origin xyz="0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_004_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.045">
+      <origin xyz="0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_045.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.004">
+      <origin xyz="0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_004.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightToeBase">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface.003_convex_hull">
+      <origin xyz="0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_003_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.044_convex_hull">
+      <origin xyz="0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_044_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface.003">
+      <origin xyz="0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_003.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.044">
+      <origin xyz="0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_044.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_RightToe_End">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftUpLeg">
+    <inertial>
+      <mass value="7.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.007_convex_hull">
+      <origin xyz="-0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_007_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.007_convex_hull">
+      <origin xyz="-0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_007_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.007">
+      <origin xyz="-0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_007.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.007">
+      <origin xyz="-0.09124 -0.93015 -0.00191" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_007.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftUpLeg_JointLink1">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftUpLeg_JointLink2">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  <link name="mixamorig_LeftLeg">
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.006_convex_hull">
+      <origin xyz="-0.09369 -0.5242   0.00325" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_006_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.006_convex_hull">
+      <origin xyz="-0.09369 -0.5242   0.00325" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_006_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.006">
+      <origin xyz="-0.09369 -0.5242   0.00325" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_006.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.006">
+      <origin xyz="-0.09369 -0.5242   0.00325" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_006.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftFoot">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Joints.005_convex_hull">
+      <origin xyz="-0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_005_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Surface.002_convex_hull">
+      <origin xyz="-0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_002_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Joints.005">
+      <origin xyz="-0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_005.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Surface.002">
+      <origin xyz="-0.09124 -0.10372  0.02383" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface_002.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftToeBase">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <collision name="COL_Alpha_Surface_convex_hull">
+      <origin xyz="-0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Surface_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <collision name="COL_Alpha_Joints.004_convex_hull">
+      <origin xyz="-0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/collisions/COL_Alpha_Joints_004_convex_hull.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </collision>
+    <visual name="VIS_Alpha_Surface">
+      <origin xyz="-0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Surface.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+    <visual name="VIS_Alpha_Joints.004">
+      <origin xyz="-0.09497  0.00119 -0.10257" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://user_avatar_ybot/meshes/visual/VIS_Alpha_Joints_004.dae" scale="0.009999999776482582 0.009999999776482582 0.009999999776482582"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="mixamorig_LeftToe_End">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+</robot>

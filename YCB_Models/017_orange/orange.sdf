@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="orange">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.007142269033564903 -0.018368262802614648 0.03363364365090191 -1.8314058421219295 0.3866113575260081 2.9731708979996174</pose> 
+        <mass>0.00020272265250081666</mass>
+        <inertia>
+          <ixx>1.0967878631910061e-07</ixx>
+          <ixy>-1.9852334701272664e-23</ixy>
+          <ixz>1.1580528575742387e-23</ixz>
+          <iyy>1.073889672522953e-07</iyy>
+          <iyz>3.3087224502121107e-23</iyz>
+          <izz>1.0657500287855837e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://017_orange/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://017_orange/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://017_orange/orange.material</uri>
+            <name>orange</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

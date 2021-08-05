@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <group ns="/iiwa">
+      <node pkg="kuka_iiwa_14_prismatic_gripper_config" type="grasp_motion.py" name="grasp_motion" args="$(find kuka_iiwa_14_prismatic_gripper_config)/config/trajectories.json"/>
+  </group>
+</launch>

@@ -1,0 +1,79 @@
+gazebo_ros_control:
+  pid_gains:
+    iiwa_joint_1: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_2: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_3: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_4: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_5: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_6: {p: 5000,  d: 100, i: 0, i_clamp: 10000}
+    iiwa_joint_7: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    #gripper_left_joint:  {p: 100,  d: 0, i: 0, i_clamp: 10000}
+    #gripper_right_joint: {p: 100,  d: 0, i: 0, i_clamp: 1000}
+    finger_1_link_1: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_1_link_2: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_1_link_3: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_2_link_1: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_2_link_2: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_2_link_3: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_middle_link_1: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_middle_link_2: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    finger_middle_link_3: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+move_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - iiwa_joint_1
+    - iiwa_joint_2
+    - iiwa_joint_3
+    - iiwa_joint_4
+    - iiwa_joint_5
+    - iiwa_joint_6
+    - iiwa_joint_7
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0
+    iiwa_joint_1: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_2: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_3: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_4: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_5: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_6: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_7: {trajectory: 0.1, goal: 0.1}
+
+  gains:
+      iiwa_joint_1: {p: 500,  d: 30, i: 15, i_clamp: 30}
+      iiwa_joint_2: {p: 200,  d: 10, i: 10, i_clamp: 30}
+      iiwa_joint_3: {p: 65,  d: 10, i: 15, i_clamp: 30}
+      iiwa_joint_4: {p: 31,  d: 7, i: 12, i_clamp: 30}
+      iiwa_joint_5: {p: 23,  d: 3, i: 5, i_clamp: 30}
+      iiwa_joint_6: {p: 13,  d: 3, i: 3, i_clamp: 30}
+      iiwa_joint_7: {p: 17,  d: 2, i: 2.5, i_clamp: 10}
+  
+move_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - finger_1_joint_1
+    - finger_1_joint_2
+    - finger_1_joint_3
+    - finger_2_joint_1
+    - finger_2_joint_2
+    - finger_2_joint_3
+    - finger_middle_joint_1
+    - finger_middle_joint_2
+    - finger_middle_joint_3
+
+  gains:
+    finger_1_joint_1:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_1_joint_2: {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_1_joint_3:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_2_joint_1:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_2_joint_2: {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_2_joint_3:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_middle_joint_1:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_middle_joint_2: {p: 1,  d: 0, i: 0, i_clamp: 30}
+    finger_middle_joint_3:  {p: 1,  d: 0, i: 0, i_clamp: 30}

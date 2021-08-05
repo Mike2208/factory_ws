@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="spoon">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.01805591680130397 -0.010160565119345408 0.010048592434568833 -1.0265757905963293 -1.515546467506486 0.6802958339721773</pose> 
+        <mass>2.432101198831533e-05</mass>
+        <inertia>
+          <ixx>9.096196827439231e-08</ixx>
+          <ixy>-1.6543612251060553e-24</ixy>
+          <ixz>2.0873385769892808e-24</ixz>
+          <iyy>9.038583292816072e-08</iyy>
+          <iyz>1.5998553541763527e-23</iyz>
+          <izz>1.181937118728266e-09</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://031_spoon/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://031_spoon/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://031_spoon/spoon.material</uri>
+            <name>spoon</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

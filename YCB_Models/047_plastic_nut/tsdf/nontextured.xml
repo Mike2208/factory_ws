@@ -1,0 +1,8 @@
+<KinBody name="047_plastic_nut">
+  <Body type="static" name="047_plastic_nut">
+    <Geom type="trimesh">
+      <Render>./nontextured.stl</Render>
+      <Data>./nontextured.stl</Data>
+    </Geom>
+  </Body>
+</KinBody>

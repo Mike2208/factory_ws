@@ -1,0 +1,38 @@
+<launch>
+    <arg name="robot_ns"/>
+    <arg name="urdf_file"/>
+    <arg name="xacro_args" default=""/>
+    <arg name="base_link" default="base_link"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.0"/>
+    <arg name="R" default="0.0"/>
+    <arg name="P" default="-0.0"/>
+    <arg name="Y" default="0.0"/>
+
+    <arg name="pub_tf_offset" default="true"/>
+    <arg name="pub_robot_state" default="true"/>
+
+
+    <group ns="$(arg robot_ns)">
+        <param name="robot_description" command="rosrun xacro xacro '$(arg urdf_file)' 
+            robot_ns:='$(arg robot_ns)' $(arg xacro_args)"/>
+        <param name="gazebo_description"  command="rosrun xacro xacro '$(arg urdf_file)' 
+            robot_ns:='!' ros_robot_ns:='$(arg robot_ns)' $(arg xacro_args)"/>
+
+        <!-- convert joint states to TF transforms for rviz, etc -->
+        <node if="$(arg pub_robot_state)" name="robot_state_publisher" 
+            pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+        <!-- Publish TF world offset -->
+        <node if="$(arg pub_tf_offset)" name="pose_offset_tf" pkg="tf2_ros" type="static_transform_publisher"
+            args="$(arg x) $(arg y) $(arg z) $(arg R) $(arg P) $(arg Y) map $(arg robot_ns)::$(arg base_link)"/>
+
+        <!-- spawn models -->
+        <node name="object_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param 'gazebo_description' 
+            -model '$(arg robot_ns)'
+            -b
+            -x '$(arg x)' -y '$(arg y)' -z '$(arg z)' 
+            -R '$(arg R)' -P '$(arg P)' -Y '$(arg Y)'"/>
+    </group>
+</launch>

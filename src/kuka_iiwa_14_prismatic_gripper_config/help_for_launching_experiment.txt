@@ -1,0 +1,3 @@
+Launch the experiment
+roslaunch kuka_iiwa_14_prismatic_gripper_config start_empty_gazebo_world.launch 
+roslaunch kuka_iiwa_14_moveit myrobot_planning_execution.launch

@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find cobotics_control)/launch/spawn_object.launch">
+        <arg name="robot_ns" value="target"/>
+        <arg name="urdf_file" value="$(find cobotics_control)/gazebo/models/cube_target/cube_target.urdf.xacro"/>
+        <arg name="xacro_args" value="enable_collision:=false"/>
+        <arg name="pub_tf_offset" value="false"/>
+        <arg name="pub_robot_state" value="true"/>
+        <arg name="z" value="1.5"/>
+    </include>
+</launch>

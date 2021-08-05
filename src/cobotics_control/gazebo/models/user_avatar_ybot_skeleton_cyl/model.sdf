@@ -1,0 +1,371 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+    <model name="skeleton_model">
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+
+        <link name="ground_ribs">
+            <pose>0.0 0.0 0.0 -1.57 0.0 0.0</pose>
+            <inertial>
+                <mass>10.0</mass>
+                <inertia>
+                    <ixx>1.0</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>1.0</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>1.0</izz>
+                </inertia>
+            </inertial>
+
+            <!--<collision name="ground_ribs">
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_ribs.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_ribs">
+                <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <material>
+                  <ambient>230 209 186</ambient>
+                  <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_ribs.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="ground_spine">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_spine.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_spine">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <material>
+                  <ambient>230 209 186</ambient>
+                  <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_spine.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="ground_skull">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_skull.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_skull">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <material>
+                  <ambient>230 209 186</ambient>
+                  <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_skull.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="ground_jaw">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_jaw.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_jaw">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <material>
+                  <ambient>230 209 186</ambient>
+                  <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_jaw.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <collision name="ground_r_clavicle">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_r_clavicle.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_r_clavicle">
+              <material>
+                <ambient>230 209 186</ambient>
+                <diffuse>230 209 186</diffuse>
+              </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/ground_r_clavicle.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>-->
+
+            <collision name="ground_r_scapula">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/body.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="ground_r_scapula">
+                <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+                <material>
+                  <ambient>230 209 186</ambient>
+                  <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/body.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+
+        <link name="r_humerus">
+            <!--<pose>-0.17 1.793 -0.017545 0.0 -1.57 0.0</pose>-->
+            <!--<pose>-0.017545 -0.17 -0.007 0.0 -0.0 0.0</pose>-->
+            <pose>0.0 0.0 0.0 -1.57 -0.0 0.0</pose>
+            <inertial>
+                <mass>1.864572</mass>
+                <inertia>
+                    <ixx>0.01481</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>-0.013193</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>0.004551</izz>
+                </inertia>
+            </inertial>
+            <collision name="arm_r_humerus">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/bigarm.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="arm_r_humerus">
+              <material>
+                <ambient>230 209 186</ambient>
+                <diffuse>230 209 186</diffuse>
+              </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/bigarm.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <gravity>1</gravity>
+        </link>
+
+        <link name="r_ulna_radius">
+            <!--<pose>-0.1577 1.502 -0.011445  0.0 -1.57 0.0</pose>-->
+            <pose>0 0 0  -1.57 0.0 0.0</pose>
+            <inertial>
+                <mass>1.534315</mass>
+                <inertia>
+                    <ixx>0.019281</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>0.001571</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>0.020062</izz>
+                </inertia>
+            </inertial>
+
+            <!-- <collision name="arm_r_ulna">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/forearm.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision> -->
+            <visual name="arm_r_ulna">
+              <material>
+                <ambient>230 209 186</ambient>
+                <diffuse>230 209 186</diffuse>
+              </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/forearm.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <!--<collision name="arm_r_radius">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/arm_r_radius.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="arm_r_radius">
+              <material>
+                <ambient>230 209 186</ambient>
+                <diffuse>230 209 186</diffuse>
+              </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/arm_r_radius.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>-->
+
+            <collision name="arm_r_radius">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/hand_cyl.obj</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="arm_r_radius">
+                <material>
+                    <ambient>230 209 186</ambient>
+                    <diffuse>230 209 186</diffuse>
+                </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/hand_cyl.obj</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <gravity>1</gravity>
+        </link>
+
+        <!-- <link name="hand_palm">
+            <pose>0.0 0.0 0.0  -1.57 0.0 0.0</pose>
+            <inertial>
+                <mass>0.4</mass>
+                <inertia>
+                    <ixx>0.0001</ixx>
+                    <ixy>0.0</ixy>
+                    <ixz>0.0</ixz>
+                    <iyy>0.0001</iyy>
+                    <iyz>0.0</iyz>
+                    <izz>0.0001</izz>
+                </inertia>
+            </inertial>
+
+            <collision name="arm_r_radius">
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/hand_cyl.obj</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="arm_r_radius">
+              <material>
+                <ambient>230 209 186</ambient>
+                <diffuse>230 209 186</diffuse>
+              </material>
+                <geometry>
+                    <mesh>
+                        <uri>model://user_avatar_ybot_skeleton_cyl/vtp_meshes/hand_cyl.obj</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <gravity>1</gravity>
+        </link> -->
+
+        <joint name="holder_joint" type="fixed">
+          <parent>world</parent>
+          <child>ground_ribs</child>
+        </joint>
+
+        <joint name="arm_r_shoulder_joint" type="revolute">
+            <parent>ground_ribs</parent>
+            <child>r_humerus</child>
+            <!--<pose>-0.17 1.793 -0.017545 0.0 -1.57 0.0</pose>-->
+            <pose>-0.17 0.017545 1.793  0.0 0.0</pose>
+            <axis>
+                <xyz>-1.0 0.0 0.0</xyz>
+                <limit>
+                    <!-- <effort>2000.0</effort> -->
+                    <lower>0</lower>
+                    <upper>3.14</upper>
+                </limit>
+                <dynamics>
+                    <damping>64</damping>
+                    <spring_stiffness>60</spring_stiffness>
+                    <spring_reference>0.785</spring_reference>
+                </dynamics>
+            </axis>
+        </joint>
+
+        <joint name="arm_r_elbow_joint" type="revolute">
+            <parent>r_humerus</parent>
+            <child>r_ulna_radius</child>
+            <!--<pose>-0.1577 1.502 -0.011445 0.0 -1.57 0.0</pose>-->
+            <pose>-0.1577 0.011445 1.502 0.0 0.0 0.0</pose>
+            <axis>
+                <xyz>-1.0 0.0 0.0</xyz>
+                <limit>
+                    <!-- <effort>2000.0</effort> -->
+                    <lower>0</lower>
+                    <upper>3.14</upper>
+                </limit>
+                <dynamics>
+                    <damping>1</damping>
+                    <spring_stiffness>10</spring_stiffness>
+                    <spring_reference>1.57</spring_reference>
+                </dynamics>
+            </axis>
+        </joint>
+
+        <!-- <joint name="arm_r_hand_joint" type="fixed">
+          <parent>r_ulna_radius</parent>
+          <child>hand_palm</child>
+          <pose>-0.220319 -0.003039 1.25013 0.0 0.0 0.0</pose>
+          <axis>
+              <xyz>-1.0 0.0 0.0</xyz>
+          </axis>
+      </joint> -->
+
+
+      </model>
+  </sdf>

@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="a_cups">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.03054243478832419 -0.04266839741228885 0.028457527482021325 2.8672624528800768 -0.0160994820297799 2.71275937600307</pose> 
+        <mass>2.3348454346731825e-05</mass>
+        <inertia>
+          <ixx>1.2955274196391763e-08</ixx>
+          <ixy>1.124448645189272e-24</ixy>
+          <ixz>3.618915179919496e-25</ixz>
+          <iyy>1.2835382668906962e-08</iyy>
+          <iyz>1.2407709188295415e-24</iyz>
+          <izz>1.0698688111398317e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://065-a_cups/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://065-a_cups/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://065-a_cups/a_cups.material</uri>
+            <name>a_cups</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

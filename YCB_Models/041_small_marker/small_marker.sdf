@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="small_marker">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>0.0032001725193334116 0.004681558579172993 0.006391496436420896 -0.020211277314552883 -0.6276743800198086 -1.9393642873010546</pose> 
+        <mass>9.949254477471e-06</mass>
+        <inertia>
+          <ixx>2.4084715561816793e-09</ixx>
+          <ixy>-2.1002632740604218e-26</ixy>
+          <ixz>-2.5849394142282115e-25</ixz>
+          <iyy>1.3477104194998567e-09</iyy>
+          <iyz>-3.004992069040296e-25</iyz>
+          <izz>-7.936753546759862e-10</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://041_small_marker/tsdf/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://041_small_marker/tsdf/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://041_small_marker/small_marker.material</uri>
+            <name>small_marker</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,14 @@
+<launch>
+  <!-- ros_control  launch file -->
+  <include file="$(find towers_of_hanoi_kuka_iiwa_14)/launch/gazebo_controllers.launch"/>
+  <node name="hanoi_tower_tf_broadcaster" pkg="towers_of_hanoi_kuka_iiwa_14" type="hanoi_tower_tf_broadcaster.py" respawn="false" output="screen"></node>
+ 
+  <node name="tower_pickup" pkg="towers_of_hanoi_kuka_iiwa_14" type="tower_pickup.py" respawn="false" output="screen"></node>
+
+  <param name="robot_description" textfile="$(find avatar_control_plugin)/sdf/avatar_model_robot_description.urdf"/>
+  
+  <include file="$(find gazebo_ros_vglrun)/launch/empty_world.launch">
+    <arg name="world_name" value="/home/devel/Projects/Cobotics_Experiment/Example_Gazebo_Scene/virtual_room.sdf"/>
+  </include>
+
+</launch>

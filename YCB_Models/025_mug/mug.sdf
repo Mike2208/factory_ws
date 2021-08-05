@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="mug">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.018858606464151616 0.01657296231165061 0.026898852026976835 2.2183437326530133 -1.468954365647891 -2.250504947674471</pose> 
+        <mass>0.00013812094844812262</mass>
+        <inertia>
+          <ixx>1.728596901312489e-07</ixx>
+          <ixy>-3.143286327701505e-23</ixy>
+          <ixz>-1.6543612251060553e-24</ixz>
+          <iyy>1.3507073823129262e-07</iyy>
+          <iyz>3.1019272970738538e-24</iyz>
+          <izz>1.1879517405979686e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://025_mug/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://025_mug/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://025_mug/mug.material</uri>
+            <name>mug</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

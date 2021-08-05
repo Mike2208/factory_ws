@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cobotics_kuka_iiwa_robotiq
+    relative_path: urdf/iiwa_robotiq.urdf.xacro
+    xacro_args: world_link:='0' robot_ns:='iiwa'
+  SRDF:
+    relative_path: config/iiwa.srdf
+  CONFIG:
+    author_name: Michael Zechmair
+    author_email: m.zechmair@unimaas.nl
+    generated_timestamp: 1623258002

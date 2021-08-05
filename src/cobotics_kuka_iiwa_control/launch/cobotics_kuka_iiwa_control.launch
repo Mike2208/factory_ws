@@ -1,0 +1,7 @@
+<launch>
+    <arg name="planning_group" default="move_arm_controller"/>
+
+    <param name="/iiwa/planning_group" value="$(arg planning_group)"/>
+    <node ns="/iiwa" name="cobotics_kuka_iiwa_control" pkg="cobotics_kuka_iiwa_control" type="cobotics_kuka_iiwa_control">
+    </node>
+</launch>

@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="phillips_screwdriver">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>0.0026626279153952586 0.02222386939344705 0.01637227553798352 1.6522155005369654 -1.005675912433564 -1.1744857422472172</pose> 
+        <mass>7.700548566461367e-05</mass>
+        <inertia>
+          <ixx>1.0868078692455597e-07</ixx>
+          <ixy>6.617444900424222e-24</ixy>
+          <ixz>4.8596860987490376e-24</ixz>
+          <iyy>1.0863412549561549e-07</iyy>
+          <iyz>-6.488197929712811e-24</iyz>
+          <izz>8.5382198611434e-09</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://043_phillips_screwdriver/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://043_phillips_screwdriver/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://043_phillips_screwdriver/phillips_screwdriver.material</uri>
+            <name>phillips_screwdriver</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

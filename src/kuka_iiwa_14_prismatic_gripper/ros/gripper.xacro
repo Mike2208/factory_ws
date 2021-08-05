@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prismatic_gripper">
+  <joint name="base_link_joint" type="fixed">
+    <origin rpy="1.5707963705062866 -0 -0" xyz="0 0 0"/>
+    <parent link="iiwa_link_7"/>
+    <child link="base_link_link"/>
+    <axis xyz="0 0 1"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="1.0" upper="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="gripper_left_joint" type="prismatic">
+    <origin rpy="1.5707963705062866 1.570796251296997 0" xyz="-0.0850000023841858 0.050000011920928955 0"/>
+    <parent link="base_link_link"/>
+    <child link="gripper_left_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.0704" velocity="1.0"/>
+  </joint>
+  <joint name="gripper_right_joint" type="prismatic">
+    <origin rpy="1.5707963705062866 -1.570796251296997 0" xyz="0.0850000023841858 0.050000011920928955 0"/>
+    <parent link="base_link_link"/>
+    <child link="gripper_right_link"/>
+    <axis xyz="0 1 0"/>
+    <calibration falling="0.0" reference_position="0.0" rising="0.0"/>
+    <dynamics damping="1.0"/>
+    <limit effort="100.0" lower="0.0" upper="0.0704" velocity="1.0"/>
+  </joint>
+  <link name="base_link_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="0.00017" ixy="0.0" ixz="0.0" iyy="0.0018" iyz="0.0" izz="0.0017"/>
+    </inertial>
+    <visual>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="0 0.02500000037252903 -1.0927847515773692e-09"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/visual/VIS_base.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5707963705062866 -0 0" xyz="0 0.02500000037252903 -1.0927847515773692e-09"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/collision/COL_base.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="gripper_left_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0002" ixy="0.0" ixz="0.0" iyy="0.000195" iyz="0.0" izz="0.000021"/>
+    </inertial>
+    <visual>
+      <origin rpy="3.141592502593994 5.960465188081798e-08 1.5707963705062866" xyz="9.529081523851346e-09 -1.4710425944031158e-07 -0.0719999828338623"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/visual/VIS_gripper_left.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="3.141592502593994 5.960465188081798e-08 1.5707963705062866" xyz="9.529081523851346e-09 -1.4710425944031158e-07 -0.0719999828338623"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/collision/COL_gripper_left.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="gripper_right_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.0002" ixy="0.0" ixz="0.0" iyy="0.000195" iyz="0.0" izz="0.000021"/>
+    </inertial>
+    <visual>
+      <origin rpy="3.141592502593994 -5.960465188081798e-08 -1.5707963705062866" xyz="-9.529081523851346e-09 -1.4710425944031158e-07 -0.0719999828338623"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/visual/VIS_gripper_right.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="3.141592502593994 -5.960465188081798e-08 -1.5707963705062866" xyz="-9.529081523851346e-09 -1.4710425944031158e-07 -0.0719999828338623"/>
+      <geometry>
+        <mesh filename="package://kuka_iiwa_14_prismatic_gripper/meshes/collision/COL_gripper_right.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <transmission name="gripper_tran_left">
+    <robotNamespace>/iiwa</robotNamespace>
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gripper_left_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <!--<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+    </joint>
+    <actuator name="gripper_motor_left">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <!--<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="gripper_tran_right">
+    <robotNamespace>/iiwa</robotNamespace>
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gripper_right_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <!--<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+    </joint>
+    <actuator name="iiwa_motor_right">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <!--<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

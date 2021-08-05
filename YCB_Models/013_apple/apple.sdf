@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="apple">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>0.0013105802251075094 -0.003861242636253375 0.03633673271131293 1.2865880165812258 -0.4957923196801326 -1.5779571819367095</pose> 
+        <mass>0.0002465953911687125</mass>
+        <inertia>
+          <ixx>1.5346617709147594e-07</ixx>
+          <ixy>-2.6469779601696886e-23</ixy>
+          <ixz>0.0</ixz>
+          <iyy>1.523724842395972e-07</iyy>
+          <iyz>0.0</iyz>
+          <izz>1.5058285191115324e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://013_apple/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://013_apple/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://013_apple/apple.material</uri>
+            <name>apple</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

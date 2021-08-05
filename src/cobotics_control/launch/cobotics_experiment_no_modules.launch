@@ -1,0 +1,8 @@
+<launch>
+  <param name="robot_description" textfile="$(find avatar_control_plugin)/sdf/avatar_model_robot_description.urdf"/>
+  
+  <include file="$(find gazebo_ros_vglrun)/launch/empty_world.launch">
+    <arg name="world_name" value="/home/devel/Projects/Cobotics_Experiment/Example_Gazebo_Scene/virtual_room.sdf"/>
+  </include>
+
+</launch>

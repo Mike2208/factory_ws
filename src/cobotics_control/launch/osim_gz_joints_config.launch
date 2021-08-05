@@ -1,0 +1,3 @@
+<launch>
+    <param name="joint_topics" type="yaml" textfile="$(find cobotics_control)/config/osim_gz_joints.yaml"/>
+</launch>

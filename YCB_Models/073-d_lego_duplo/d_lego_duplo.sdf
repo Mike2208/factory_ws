@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="d_lego_duplo">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.02022260894778108 -0.029911376763957505 0.022775232245389507 -0.24335913765336892 1.3050776420007135 -1.1137734900697445</pose> 
+        <mass>3.797934400201833e-05</mass>
+        <inertia>
+          <ixx>9.8676529631706e-09</ixx>
+          <ixy>-4.1359030627651384e-25</ixy>
+          <ixz>0.0</ixz>
+          <iyy>9.612165113870201e-09</iyy>
+          <iyz>-1.2407709188295415e-24</iyz>
+          <izz>6.658495774366487e-09</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://073-d_lego_duplo/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://073-d_lego_duplo/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://073-d_lego_duplo/d_lego_duplo.material</uri>
+            <name>d_lego_duplo</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="timer">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.008380210128086773 -0.01007806111086999 0.02309571069525015 1.6556263749894973 -1.4306219623776586 0.8011890136695227</pose> 
+        <mass>0.00022408566973574842</mass>
+        <inertia>
+          <ixx>2.742812455801343e-07</ixx>
+          <ixy>5.293955920339377e-23</ixy>
+          <ixz>-4.549493369041652e-24</ixz>
+          <iyy>1.5952696654506076e-07</iyy>
+          <iyz>8.388128399170546e-23</iyz>
+          <izz>1.3453376377096785e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://076_timer/tsdf/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://076_timer/tsdf/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://076_timer/timer.material</uri>
+            <name>timer</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

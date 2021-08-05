@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="golf_ball">
+    <static>false</static>
+    <link name="link">
+      <inertial>       
+        <pose>-0.006528858552747081 -0.03041729713329846 0.02092653007258482 1.2624848084585936 -1.4760519281924047 -1.143526151030988</pose> 
+        <mass>4.0280065824670666e-05</mass>
+        <inertia>
+          <ixx>7.301734199252709e-09</ixx>
+          <ixy>4.1359030627651384e-25</ixy>
+          <ixz>-3.101927297073854e-25</ixz>
+          <iyy>7.2811358176094885e-09</iyy>
+          <iyz>3.1988625251074117e-25</iyz>
+          <izz>7.275798810853511e-09</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Use a downsampled mesh for collisions -->
+            <uri>model://058_golf_ball/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+        <!--<friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>-->
+      </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://058_golf_ball/google_16k/textured.obj</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://058_golf_ball/golf_ball.material</uri>
+            <name>golf_ball</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <plugin name="ROSTFPublisher" filename="ROSRobotPosePublisherPlugin.so">
+    </plugin>
+  </model>
+</sdf>

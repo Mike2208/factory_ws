@@ -1,0 +1,49 @@
+<launch>
+    <arg name="rbkairos_ns" default="rbkairos"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.01"/>
+    <arg name="R" default="0.0"/>
+    <arg name="P" default="-0.0"/>
+    <arg name="Y" default="0.0"/>
+
+    <group ns="$(arg rbkairos_ns)">
+        <param name="robot_description" command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos/rbkairos_base.xacro' 
+            world_link:='0' prefix:='$(arg rbkairos_ns)_'"/>
+        <!-- <param name="robot_description" command="rosrun xacro xacro '$(find rbkairos_description)/robots/rbkairos_base.urdf.xacro' 
+            world_link:='0' prefix:='$(arg rbkairos_ns)_'"/> -->
+        <!-- <param name="gazebo_description"  command="rosrun xacro xacro '$(find robotiq_3f_gripper_visualization)/cfg/robotiq-3f-gripper_articulated.xacro' 
+            world_link:='1' prefix:=''"/> -->
+        
+        <!-- <param name="rbkairos_ctrl/root_link" value="rbkairos_link_0"/>
+        <param name="rbkairos_ctrl/link_prefix" value="$(arg rbkairos_ns)"/> -->
+
+        <!-- convert joint states to TF transforms for rviz, etc -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        
+        <!-- Publish TF world offset -->
+        <!-- <node name="pose_offset_tf" pkg="tf2_ros" type="static_transform_publisher"
+            args="$(arg x) $(arg y) $(arg z) $(arg R) $(arg P) $(arg Y) map $(arg rbkairos_ns)::rbkairos_offset"/>
+
+        <node name="map_tf" pkg="tf2_ros" type="static_transform_publisher"
+            args="0 0 0 0 -0 0 $(arg rbkairos_ns)::rbkairos_offset $(arg rbkairos_ns)::rbkairos_base_link"/> -->
+
+        <!-- load the controllers -->
+        <!-- <rosparam file="$(find cobotics_control)/config/rbkairos_gazebo_controllers.yaml"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"
+            args="move_arm_controller move_gripper_controller joint_state_controller"/> -->
+
+        <!-- spawn models -->
+        <node name="robotiq_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param 'robot_description' 
+            -model '$(arg rbkairos_ns)'
+            -b
+            -x '$(arg x)' -y '$(arg y)' -z '$(arg z)' 
+            -R '$(arg R)' -P '$(arg P)' -Y '$(arg Y)'"/>
+
+        <!-- start moveit -->
+        <!-- <include file="$(find cobotics_kuka_rbkairos_moveit_config)/launch/moveit_planning_execution.launch">
+            <arg name="load_robot_description" default="false"/>
+            <arg name="rviz_config" default="$(find cobotics_control)/config/config.rviz"/>
+        </include> -->
+    </group>
+</launch>

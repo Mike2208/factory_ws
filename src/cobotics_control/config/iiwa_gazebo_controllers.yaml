@@ -1,0 +1,84 @@
+gazebo_ros_control:
+  pid_gains:
+    iiwa_joint_1: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_2: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_3: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_4: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_5: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    iiwa_joint_6: {p: 5000,  d: 100, i: 0, i_clamp: 10000}
+    iiwa_joint_7: {p: 5000,  d: 100, i: 0, i_clamp: 1000}
+    gripper_left_joint:  {p: 100,  d: 0, i: 0, i_clamp: 10000}
+    gripper_right_joint: {p: 100,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_1: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_2: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_3: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_4: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_5: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_6: {p: 1,  d: 0, i: 0, i_clamp: 10000}
+    # iiwa_joint_7: {p: 1,  d: 0, i: 0, i_clamp: 1000}
+    # iiwa_joint_3: {p: 20,  d: 0.2, i: 1.9, i_clamp: 1000}
+    # iiwa_joint_4: {p: 800,  d: 56, i: 500, i_clamp: 1000}
+    # iiwa_joint_5: {p: 50,  d: 0.3, i: 100, i_clamp: 1000}
+    # iiwa_joint_6: {p: 300,  d: 2, i: 1000, i_clamp: 10000}
+    # iiwa_joint_7: {p: 20,  d: 0.2, i: 1.9, i_clamp: 1000}
+    # #iiwa_joint_1: {p: 100, d: 56, i: 50, i_clamp: 30}
+    # #iiwa_joint_2: {p: 800, d: 56, i: 500, i_clamp: 1000}
+    # # iiwa_joint_3: {p: 5,  d: 0.8, i: 0, i_clamp: 1000}
+    # # iiwa_joint_3: {p: 80,  d: 12, i: 0, i_clamp: 1000}
+    # iiwa_joint_3: {p: 20,  d: 0.2, i: 1.9, i_clamp: 1000}
+    # # iiwa_joint_4: {p: 800,  d: 64, i: 0, i_clamp: 1000}
+    # # iiwa_joint_4: {p: 800,  d: 55, i: 0, i_clamp: 1000}
+    # # iiwa_joint_4: {p: 800,  d: 56, i: 125, i_clamp: 1000}
+    # iiwa_joint_4: {p: 800,  d: 56, i: 500, i_clamp: 1000}
+    # iiwa_joint_5: {p: 50,  d: 0.3, i: 100, i_clamp: 1000}
+    # #iiwa_joint_6: {p: 50,  d: 1, i: 16, i_clamp: 1000}
+    # #iiwa_joint_6: {p: 200,  d: 0.5, i: 50, i_clamp: 1000}
+    # #iiwa_joint_6: {p: 500,  d: 0.1, i: 500, i_clamp: 1000}
+    # iiwa_joint_6: {p: 300,  d: 2, i: 1000, i_clamp: 10000}
+    # #iiwa_joint_7: {p: 17,  d: 1, i: 25, i_clamp: 1000}
+    # iiwa_joint_7: {p: 20,  d: 0.2, i: 1.9, i_clamp: 1000}
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+move_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - iiwa_joint_1
+    - iiwa_joint_2
+    - iiwa_joint_3
+    - iiwa_joint_4
+    - iiwa_joint_5
+    - iiwa_joint_6
+    - iiwa_joint_7
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0
+    iiwa_joint_1: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_2: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_3: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_4: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_5: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_6: {trajectory: 0.1, goal: 0.1}
+    iiwa_joint_7: {trajectory: 0.1, goal: 0.1}
+
+  gains:
+      iiwa_joint_1: {p: 500,  d: 30, i: 15, i_clamp: 30}
+      iiwa_joint_2: {p: 200,  d: 10, i: 10, i_clamp: 30}
+      iiwa_joint_3: {p: 65,  d: 10, i: 15, i_clamp: 30}
+      iiwa_joint_4: {p: 31,  d: 7, i: 12, i_clamp: 30}
+      iiwa_joint_5: {p: 23,  d: 3, i: 5, i_clamp: 30}
+      iiwa_joint_6: {p: 13,  d: 3, i: 3, i_clamp: 30}
+      iiwa_joint_7: {p: 17,  d: 2, i: 2.5, i_clamp: 10}
+  
+move_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - gripper_left_joint
+    - gripper_right_joint
+
+  gains:
+    gripper_left_joint:  {p: 1,  d: 0, i: 0, i_clamp: 30}
+    gripper_right_joint: {p: 1,  d: 0, i: 0, i_clamp: 30}

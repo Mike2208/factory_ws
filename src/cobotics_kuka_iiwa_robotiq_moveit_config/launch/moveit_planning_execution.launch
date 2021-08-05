@@ -1,0 +1,18 @@
+<launch>
+  <arg name="load_robot_description" default="true"/>
+  <arg name="rviz_config" default=""/>
+  <arg name="rviz_launch" default="true"/>
+
+  # The planning and execution components of MoveIt! configured to 
+  # publish the current configuration of the robot (simulated or real) 
+  # and the current state of the world as seen by the planner
+  <include file="$(find cobotics_kuka_iiwa_robotiq_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="load_robot_description" default="$(arg load_robot_description)"/>
+  </include>
+
+  # The visualization component of MoveIt!
+  <include if="$(arg rviz_launch)" file="$(find cobotics_kuka_iiwa_robotiq_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" default="$(arg rviz_config)"/>
+  </include>
+</launch>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.91.0 commit date:2020-11-25, commit time:08:34, hash:0f45cab862b8</authoring_tool>
+    </contributor>
+    <created>2021-01-15T15:03:54</created>
+    <modified>2021-01-15T15:03:54</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="mat1-effect">
+      <profile_COMMON>
+        <newparam sid="dark_blue_wood_texture_jpg-surface">
+          <surface type="2D">
+            <init_from>dark_blue_wood_texture_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="dark_blue_wood_texture_jpg-sampler">
+          <sampler2D>
+            <source>dark_blue_wood_texture_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="dark_blue_wood_texture_jpg-sampler" texcoord="Part2-mesh-map-0"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="mat2-effect">
+      <profile_COMMON>
+        <newparam sid="landing_pad_jpg-surface">
+          <surface type="2D">
+            <init_from>landing_pad_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="landing_pad_jpg-sampler">
+          <sampler2D>
+            <source>landing_pad_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="landing_pad_jpg-sampler" texcoord="Part2-mesh-map-0"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="dark_blue_wood_texture_jpg" name="dark_blue_wood_texture_jpg">
+      <init_from>dark_blue_wood_texture.png</init_from>
+    </image>
+    <image id="landing_pad_jpg" name="landing_pad_jpg">
+      <init_from>landing_pad.jpg</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="mat1-material" name="mat1">
+      <instance_effect url="#mat1-effect"/>
+    </material>
+    <material id="mat2-material" name="mat2">
+      <instance_effect url="#mat2-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Part2-mesh" name="Part2">
+      <mesh>
+        <source id="Part2-mesh-positions">
+          <float_array id="Part2-mesh-positions-array" count="36">0 0.4 0.4 0 0.4 0 0 0 0.4 0 0 0 0.4 0.4 0.4 0.4 0 0.4 0 0 0.4 0.4 0.4 0 0.4 0 0 0.4 0 0.4 0 0 0 0.4 0 0</float_array>
+          <technique_common>
+            <accessor source="#Part2-mesh-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Part2-mesh-normals">
+          <float_array id="Part2-mesh-normals-array" count="18">-1 0 0 1 0 0 0 1 0 0 -1 0 0 0 1 0 0 -1</float_array>
+          <technique_common>
+            <accessor source="#Part2-mesh-normals-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Part2-mesh-map-0">
+          <float_array id="Part2-mesh-map-0-array" count="72">9.97576e-5 0.9954565 9.98228e-5 9.97576e-5 0.9999002 0.9954567 0.9999002 0.9954567 9.98228e-5 9.97576e-5 0.9999004 9.99079e-5 0.9999 0.9999 9.998e-5 0.9999 0.9999 9.998e-5 0.9999 9.998e-5 9.998e-5 0.9999 1.00055e-4 1.00011e-4 9.97576e-5 0.9954565 9.98228e-5 9.97576e-5 0.9999002 0.9954567 0.9999002 0.9954567 9.98228e-5 9.97576e-5 0.9999004 9.99079e-5 0.9999004 0.9954567 9.97576e-5 0.9954567 0.9999004 9.97576e-5 0.9999004 9.97576e-5 9.97576e-5 0.9954567 9.98228e-5 9.97883e-5 1.00055e-4 9.998e-5 0.9999 1.00129e-4 9.998e-5 0.9999 9.998e-5 0.9999 0.9999 1.00129e-4 0.9998999 0.9999001 9.9888e-5 0.9954565 9.97576e-5 9.97576e-5 0.9999004 0.9954565 0.9999004 0.9954565 9.97576e-5 9.97576e-5 0.9999004 9.97576e-5</float_array>
+          <technique_common>
+            <accessor source="#Part2-mesh-map-0-array" count="36" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Part2-mesh-vertices">
+          <input semantic="POSITION" source="#Part2-mesh-positions"/>
+        </vertices>
+        <triangles material="mat1-material" count="8">
+          <input semantic="VERTEX" source="#Part2-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Part2-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Part2-mesh-map-0" offset="2" set="0"/>
+          <p>0 0 0 1 0 1 2 0 2 2 0 3 1 0 4 3 0 5 7 1 6 4 1 7 8 1 8 8 1 9 4 1 10 9 1 11 4 2 12 7 2 13 0 2 14 0 2 15 7 2 16 1 2 17 11 3 18 5 3 19 10 3 20 10 3 21 5 3 22 6 3 23</p>
+        </triangles>
+        <triangles material="mat2-material" count="4">
+          <input semantic="VERTEX" source="#Part2-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Part2-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Part2-mesh-map-0" offset="2" set="0"/>
+          <p>4 4 24 0 4 25 5 4 26 5 4 27 0 4 28 6 4 29 1 5 30 7 5 31 10 5 32 10 5 33 7 5 34 11 5 35</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Part2" name="Part2" type="NODE">
+        <matrix sid="transform">1.093391 0 0 0 0 1.093391 0 0 0 0 1.093391 0 0 0 0 1</matrix>
+        <instance_geometry url="#Part2-mesh" name="Part2">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="mat1-material" target="#mat1-material">
+                <bind_vertex_input semantic="Part2-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="mat2-material" target="#mat2-material">
+                <bind_vertex_input semantic="Part2-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

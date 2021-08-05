@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa14_gripper::iiwa14">
+  <xacro:include filename="$(find kuka_iiwa_14_prismatic_gripper)/ros/iiwa.xacro" />
+  <xacro:include filename="$(find kuka_iiwa_14_prismatic_gripper)/ros/gripper.xacro" />
+</robot>

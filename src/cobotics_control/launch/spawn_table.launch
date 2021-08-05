@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find cobotics_control)/launch/spawn_object.launch">
+        <arg name="robot_ns" value="table"/>
+        <arg name="urdf_file" value="$(find cobotics_control)/gazebo/models/table_gray/table_gray.urdf.xacro"/>
+        <arg name="xacro_args" value="enable_collision:=true"/>
+    </include>
+</launch>

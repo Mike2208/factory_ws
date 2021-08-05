@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="urdf_path" default="$(find kuka_iiwa_14_prismatic_gripper)/ros/iiwa_gripper.urdf"/>    
+
+  <group ns="/iiwa">
+    
+    <param name="robot_description" textfile="$(arg urdf_path)" /> 
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <include file="$(find kuka_iiwa_14_prismatic_gripper_config)/launch/planning_context.launch">
+      <arg name="load_robot_description" value="true"/>
+    </include>
+
+    <rosparam file="$(find kuka_iiwa_14_prismatic_gripper_config)/config/gazebo_controllers.yaml" command="load"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" args="--timeout 99999 joint_state_controller iiwa_position_controller grasp_effort_controller">
+    </node>
+
+    <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
+    <include file="$(find kuka_iiwa_14_prismatic_gripper_config)/launch/move_group_controllers.launch">
+      <arg name="allow_trajectory_execution" value="true"/>
+      <arg name="fake_execution" value="false"/>
+      <arg name="info" value="true"/>
+      <arg name="debug" value="false"/>
+      <arg name="pipeline" value="ompl"/>
+    </include>
+
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+      respawn="false" output="screen">
+    </node>
+
+    <!-- <node pkg="kuka_iiwa_14_prismatic_gripper_config" type="grasp_motion.py" name="grasp_motion" args="$(find kuka_iiwa_14_prismatic_gripper_config)/config/trajectories.json"/> -->
+    
+   
+      <node type="rviz" name="rviz" pkg="rviz" args="-d $(find kuka_iiwa_14_prismatic_gripper_config)/rviz/moveit_configuration.rviz" />
+  </group>
+  
+  <node pkg="tf" type="static_transform_publisher" name="world_broadcaster" args = "0 0 0 0 0 0 world base_link 10" />
+  <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args = "0 0 0 0 0 0 world map 10" />
+</launch>

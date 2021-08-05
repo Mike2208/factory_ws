@@ -1,0 +1,58 @@
+<launch>
+    <arg name="iiwa_ns" default="iiwa"/>
+    <!-- <arg name="x" default="0.0"/> -->
+    <!-- <arg name="x" default="-0.1"/> -->
+    <arg name="x" default="0.3"/>
+    <!-- <arg name="y" default="-0.6"/> -->
+    <!-- <arg name="y" default="-0.6"/> -->
+    <arg name="y" default="-0.8"/>
+    <!-- <arg name="z" default="0.733"/> -->
+    <!-- <arg name="z" default="0.333"/> -->
+    <arg name="z" default="0.2"/>
+    <arg name="R" default="0.0"/>
+    <arg name="P" default="-0.0"/>
+    <arg name="Y" default="0.0"/>
+
+    <group ns="$(arg iiwa_ns)">
+        <param name="robot_description" command="rosrun xacro xacro '$(find cobotics_kuka_iiwa_robotiq)/urdf/iiwa_robotiq.urdf.xacro' 
+            world_link:='0' robot_ns:='$(arg iiwa_ns)'"/>
+        <param name="gazebo_description"  command="rosrun xacro xacro '$(find cobotics_kuka_iiwa_robotiq)/urdf/iiwa_robotiq.urdf.xacro' 
+            world_link:='1' robot_ns:='!'"/>
+        
+        <param name="iiwa_ctrl/gazebo_root_link" value="iiwa_link_0"/>
+        <param name="iiwa_ctrl/ros_root_link" value="$(arg iiwa_ns)::iiwa_link_0"/>
+
+        <!-- convert joint states to TF transforms for rviz, etc -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+            <!-- args="robot_description:=tf_description"> -->
+            <!-- <param name="tf_prefix" value="$(arg iiwa_ns)"/> DEPRECATED :( -->
+            <!-- <remap from="gazebo_description" to="robot_description"/> -->
+        </node>
+
+        <!-- Publish TF world offset -->
+        <node name="pose_offset_tf" pkg="tf2_ros" type="static_transform_publisher"
+            args="$(arg x) $(arg y) $(arg z) $(arg R) $(arg P) $(arg Y) map $(arg iiwa_ns)::iiwa_offset"/>
+
+        <node name="map_tf" pkg="tf2_ros" type="static_transform_publisher"
+            args="0 0 0 0 -0 0 $(arg iiwa_ns)::iiwa_offset $(arg iiwa_ns)::iiwa_base_link"/>
+
+        <!-- load the controllers -->
+        <rosparam file="$(find cobotics_control)/config/iiwa_robotiq_gazebo_controllers.yaml"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"
+            args="move_arm_controller move_gripper_controller joint_state_controller"/>
+
+        <!-- spawn models -->
+        <node name="iiwa_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param 'gazebo_description' 
+            -model '$(arg iiwa_ns)'
+            -b
+            -x '$(arg x)' -y '$(arg y)' -z '$(arg z)' 
+            -R '$(arg R)' -P '$(arg P)' -Y '$(arg Y)'"/>
+
+        <!-- start moveit -->
+        <include file="$(find cobotics_kuka_iiwa_robotiq_moveit_config)/launch/moveit_planning_execution.launch">
+            <arg name="load_robot_description" default="false"/>
+            <arg name="rviz_config" default="$(find cobotics_control)/config/config.rviz"/>
+            <arg name="rviz_launch" default="false"/>
+        </include>
+    </group>
+</launch>
