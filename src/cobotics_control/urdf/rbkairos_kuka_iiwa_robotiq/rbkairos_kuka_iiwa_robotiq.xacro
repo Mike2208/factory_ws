@@ -720,5 +720,7 @@
         <plugin name="ROSRobotPosePublisher" filename="ROSRobotPosePublisherPlugin.so">
             <ROSFrameID>rbkairos::base_link</ROSFrameID>
         </plugin>
+        <plugin name="TeleportGzPlugin" filename="TeleportGzPlugin.so">
+        </plugin>
     </gazebo>
 </robot>

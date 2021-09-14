@@ -21,10 +21,12 @@
        <xacro:omni_steering prefix="$(arg prefix)" publish_tf="true"/>
    </xacro:if>
 
-    <!-- <gazebo>
-        <static>false</static>
-        <plugin name="ROSRobotPosePublisher" filename="ROSRobotPosePublisherPlugin.so">
-            <ROSFrameID>rbkairos_base_link</ROSFrameID>
+    <gazebo>
+        <!--<static>false</static>
+	<plugin name="ROSRobotPosePublisher" filename="ROSRobotPosePublisherPlugin.so">
+       	    <ROSFrameID>rbkairos_base_link</ROSFrameID>
+	</plugin>-->
+	<plugin name="TeleportGzPlugin" filename="TeleportGzPlugin.so">
         </plugin>
-    </gazebo> -->
+    </gazebo>
 </robot>
