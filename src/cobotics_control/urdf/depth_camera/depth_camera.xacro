@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="depth_camera">
+  <xacro:arg name="cam_topic" default="depth_camera"/>
+  
+  <xacro:arg name="enable_visual" default="1"/>
+  <xacro:arg name="enable_collision" default="0"/>
+  <xacro:arg name="is_static" default="1"/>
+  <xacro:arg name="update_rate" default="30.0"/>
+  <xacro:arg name="width" default="640"/>
+  <xacro:arg name="height" default="480"/>
+  <xacro:arg name="fov" default="1.047198"/>
+  <xacro:arg name="format" default="R8G8B8"/>
+
+  <!-- Camera Link -->
+  <link name="base">
+    <xacro:if value="$(arg enable_visual)">
+      <visual>
+	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	      <geometry>
+	        <box size="0.1 0.05 0.05"/>
+	      </geometry>
+	      <material name="gray"/>
+      </visual>
+    </xacro:if>
+    <xacro:if value="$(arg enable_collision)">
+      <collision>
+	      <geometry>
+	        <box size="0.05 0.05 0.1"/>
+  	    </geometry>
+      </collision>
+    </xacro:if>
+    <inertial>
+	    <mass value="0.2" />
+	    <inertia ixx="0.00020833" ixy="0.0" ixz="0.0"
+		      iyy="0.00020833" iyz="0.0"
+		      izz="0.0000833" />
+    </inertial>
+  </link>
+
+  <xacro:if value="$(arg is_static)">
+    <gazebo>
+      <static>true</static>
+    </gazebo>
+  </xacro:if>
+
+  <gazebo reference="base">
+    <!-- Gazebo Camera Plugin -->
+    <sensor type="depth" name="camera_sensor">
+      <update_rate>$(arg update_rate)</update_rate>
+      <camera>
+        <horizontal_fov>$(arg fov)</horizontal_fov>
+        <image>
+          <format>$(arg format)</format>
+          <width>$(arg width)</width>
+          <height>$(arg height)</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>100</far>
+        </clip>
+      </camera>
+
+      <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+        <!--<baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera_ir</cameraName>
+        <imageTopicName>/camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+        <frameName>camera_link</frameName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+	<hackBaseline>0</hackBaseline>-->
+        <baseline>0.2</baseline>
+        <cameraName>$(arg cam_topic)</cameraName>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>$(arg update_rate)</updateRate>
+        <imageTopicName>image</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>map</frameName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>

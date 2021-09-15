@@ -45,7 +45,7 @@
 
   <gazebo reference="base">
     <!-- Gazebo Camera Plugin -->
-    <sensor type="$(arg cam_topic)" name="camera_sensor">
+    <sensor type="camera" name="camera_sensor">
       <update_rate>$(arg update_rate)</update_rate>
       <camera>
         <horizontal_fov>$(arg fov)</horizontal_fov>
