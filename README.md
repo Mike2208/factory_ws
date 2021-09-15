@@ -1,7 +1,18 @@
 # Installation
 
 ```bash
+# Pre-steps needed to install ROS stuff
+echo "deb http://packages.ros.org/ros/ubuntu focal main" | tee /etc/apt/sources.list.d/ros-focal.list
+apt update
+apt install gnupg2
+apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+apt install curl
+curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | apt-key add -
+
+# Install ROS
 sudo apt install ros-noetic-desktop-full git-lfs
+sudo apt install ros-noetic-object-recognition-msgs ros-noetic-moveit-core ros-noetic-moveit-ros-perception ros-noetic-moveit-ros-planning-interface ros-noetic-velocity-controllers ros-noetic-twist-mux python3-rostopic ros-noetic-effort-controllers ros-noetic-position-controllers
+
 # Clone this repository
 cd <REPOSITORY_DIR>
 source /opt/ros/noetic/setup.bash
@@ -15,7 +26,7 @@ catkin_make -j8
 ```bash
 cd <REPOSITORY_DIR>
 source devel/setup.bash
-source GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
+export GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
 roslaunch gazebo_ros empty_world.launch extra_gazebo_args:="--verbose" world_name:=$(rosls cobotics_control/worlds/factory.sdf)
 ```
 
