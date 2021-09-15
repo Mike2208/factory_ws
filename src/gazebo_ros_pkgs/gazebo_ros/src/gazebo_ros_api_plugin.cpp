@@ -216,8 +216,6 @@ void GazeboRosApiPlugin::loadGazeboRosApiPlugin(std::string world_name)
   last_pub_clock_time_ = world_->GetSimTime();
 #endif
 
-  ROS_ERROR_STREAM("PUB CLOCK FREQUENCY" << pub_clock_frequency_);
-
   // hooks for applying forces, publishing simtime on /clock
   wrench_update_event_ = gazebo::event::Events::ConnectWorldUpdateBegin(boost::bind(&GazeboRosApiPlugin::wrenchBodySchedulerSlot,this));
   force_update_event_  = gazebo::event::Events::ConnectWorldUpdateBegin(boost::bind(&GazeboRosApiPlugin::forceJointSchedulerSlot,this));
