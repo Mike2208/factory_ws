@@ -41,6 +41,8 @@ roslaunch cobotics_control spawn_rbkairos_kuka_iiwa_robotiq.launch
 
 ## Controlling the Robotnik base
 
+Moving the base:
+
 ```bash
 rostopic pub -1 /rbkairos/robotnik_base_control/cmd_vel geometry_msgs/Twist "linear:
   x: 0.0    # Base Forward Velocity
@@ -51,6 +53,21 @@ angular:
   y: 0.0
   z: 0.0    # Base Rotation"
 ```
+
+Teleporting the base to a position:
+
+```bash
+rostopic pub -1 /rbkairos/teleport geometry_msgs/Pose "position:
+  x: 1.0    # Base x translation
+  y: 0.0    # Base y translation
+  z: 1.0    # Base z translation
+orientation:    # Base Rotation (Note: only rotation around z-axis is taken into account, the rest are ignored)
+  x: 0.0    
+  y: 0.0    
+  z: 0.0    
+  w: 0.0"
+```
+
 
 ## Controlling the Kuka arm
 
@@ -71,3 +88,24 @@ points:
       time_from_start: {secs: 1, nsecs: 5000000}"
 ```
 
+
+## Controlling the Robotiq gripper
+
+```bash
+rostopic pub /rbkairos/move_gripper_controller/command trajectory_msgs/JointTrajectory "joint_names:
+    - finger_1_joint_1
+    - finger_1_joint_2
+    - finger_1_joint_3
+    - finger_2_joint_1
+    - finger_2_joint_2
+    - finger_2_joint_3
+    - finger_middle_joint_1
+    - finger_middle_joint_2
+    - finger_middle_joint_3
+points:
+    - positions: [ 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 ]
+      velocities: [ 0,0,0, 0,0,0, 0,0,0 ]
+      accelerations: [ 0,0,0, 0,0,0, 0,0,0 ]
+      effort: [ 0,0,0, 0,0,0, 0,0,0 ]
+      time_from_start: {secs: 1, nsecs: 0}"
+```

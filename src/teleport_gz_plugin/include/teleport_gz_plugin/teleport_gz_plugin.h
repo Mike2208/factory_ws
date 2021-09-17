@@ -10,7 +10,10 @@
 class TeleportGzPlugin
         : public gazebo::ModelPlugin
 {
-		static constexpr std::string_view ROS_CMD_TOPIC = "teleport";
+		static constexpr std::string_view ROS_CMD_TOPIC_DEFAULT = "teleport";
+		static constexpr std::string_view ROS_NS_DEFAULT = "/rbkairos";
+
+		static constexpr std::string_view SDF_ROS_NS = "ros_ns";
 		static constexpr std::string_view SDF_PLATFORM_JOINT_PROP = "base_lift";
 
 	public:

@@ -14,15 +14,19 @@ void TeleportGzPlugin::Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf
 {
 	this->_model = model;
 
+	std::string rosNs = ROS_NS_DEFAULT.data();
+	if(const auto sdfElement = sdf->GetElementImpl(SDF_ROS_NS.data()))
+		rosNs = sdfElement->GetValue()->GetAsString();
+
 	if(const auto sdfElement = sdf->GetElementImpl(SDF_PLATFORM_JOINT_PROP.data()))
 	{
 		const std::string liftJointName = sdfElement->GetValue()->GetAsString();
 		this->_liftJoint = this->_model->GetJoint(liftJointName);
 	}
 
-	this->_rn = ros::NodeHandlePtr(new ros::NodeHandle());
+	this->_rn = ros::NodeHandlePtr(new ros::NodeHandle(rosNs));
 	this->_rn->setCallbackQueue(&this->_rCb);
-	this->_commands = this->_rn->subscribe(ROS_CMD_TOPIC.data(), 1, &TeleportGzPlugin::OnRosCommand, this);
+	this->_commands = this->_rn->subscribe(ROS_CMD_TOPIC_DEFAULT.data(), 1, &TeleportGzPlugin::OnRosCommand, this);
 
 	this->_onWorldBegin  = gazebo::event::Events::ConnectWorldCreated(std::bind(&TeleportGzPlugin::OnWorldBegin, this));
 	this->_onUpdateBegin = gazebo::event::Events::ConnectWorldUpdateBegin(std::bind(&TeleportGzPlugin::OnUpdateBegin, this));
