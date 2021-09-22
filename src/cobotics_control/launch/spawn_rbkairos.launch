@@ -6,14 +6,17 @@
     <arg name="R" default="0.0"/>
     <arg name="P" default="-0.0"/>
     <arg name="Y" default="0.0"/>
+    <arg name="teleportation" default="false"/>
 
     <group ns="$(arg rbkairos_ns)">
-        <param name="robot_description" command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos/rbkairos_base.xacro' 
-            world_link:='0' prefix:='$(arg rbkairos_ns)_'"/>
-        <!-- <param name="robot_description" command="rosrun xacro xacro '$(find rbkairos_description)/robots/rbkairos_base.urdf.xacro' 
-            world_link:='0' prefix:='$(arg rbkairos_ns)_'"/> -->
-        <!-- <param name="gazebo_description"  command="rosrun xacro xacro '$(find robotiq_3f_gripper_visualization)/cfg/robotiq-3f-gripper_articulated.xacro' 
-            world_link:='1' prefix:=''"/> -->
+        <param if="$(arg teleportation)"
+            name="robot_description"
+            command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos/rbkairos_base_teleportation.xacro' 
+                world_link:='0' prefix:='$(arg rbkairos_ns)_'"/>
+        <param unless="$(arg teleportation)"
+            name="robot_description"
+            command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos/rbkairos_base.xacro' 
+                world_link:='0' prefix:='$(arg rbkairos_ns)_'"/>
         
         <!-- <param name="rbkairos_ctrl/root_link" value="rbkairos_link_0"/>
         <param name="rbkairos_ctrl/link_prefix" value="$(arg rbkairos_ns)"/> -->

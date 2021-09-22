@@ -6,14 +6,18 @@
     <arg name="R" default="0.0"/>
     <arg name="P" default="-0.0"/>
     <arg name="Y" default="0.0"/>
+    <arg name="teleportation" default="false"/>
 
     <group ns="$(arg rbkairos_ns)">
-        <param name="robot_description" command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos_kuka_iiwa_robotiq/rbkairos_kuka_iiwa_robotiq.xacro' 
-            world_link:='0' prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>
-        <!-- <param name="robot_description" command="rosrun xacro xacro '$(find rbkairos_description)/robots/rbkairos_base.urdf.xacro' 
-            world_link:='0' prefix:='$(arg rbkairos_ns)_'"/> -->
-        <!-- <param name="gazebo_description"  command="rosrun xacro xacro '$(find robotiq_3f_gripper_visualization)/cfg/robotiq-3f-gripper_articulated.xacro' 
-            world_link:='1' prefix:=''"/> -->
+        <param if="$(arg teleportation)" 
+            name="robot_description" 
+            command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos_kuka_iiwa_robotiq/rbkairos_kuka_iiwa_robotiq_teleportation.xacro'
+                world_link:='0' prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>
+        <param unless="$(arg teleportation)" 
+            name="robot_description" 
+            command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos_kuka_iiwa_robotiq/rbkairos_kuka_iiwa_robotiq.xacro' 
+                world_link:='0' prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>
+        
         
         <param name="iiwa_ctrl/gazebo_root_link" value="$(arg rbkairos_ns)::iiwa_link_0"/>
         <param name="iiwa_ctrl/ros_root_link" value="$(arg rbkairos_ns)::iiwa_link_0"/>

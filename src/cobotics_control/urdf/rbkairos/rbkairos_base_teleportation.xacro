@@ -22,9 +22,11 @@
    </xacro:if>
 
     <gazebo>
-        <static>false</static>
+        <!--<static>false</static>
 	    <plugin name="ROSRobotPosePublisher" filename="ROSRobotPosePublisherPlugin.so">
        	    <ROSFrameID>rbkairos_base_link</ROSFrameID>
-	    </plugin>
+	    </plugin>-->
+	    <plugin name="TeleportGzPlugin" filename="TeleportGzPlugin.so">
+        </plugin>
     </gazebo>
 </robot>
