@@ -72,7 +72,7 @@ orientation:    # Base Rotation (Note: only rotation around z-axis is taken into
 ## Controlling the Kuka arm
 
 ```bash
-rostopic pub -1 /rbkairos/iiwa/move_arm_controller/command trajectory_msgs/JointTrajectory "joint_names:
+rostopic pub -1 /rbkairos/move_arm_controller/command trajectory_msgs/JointTrajectory "joint_names:
     - 'iiwa_joint_1'
     - 'iiwa_joint_2'
     - 'iiwa_joint_3'
