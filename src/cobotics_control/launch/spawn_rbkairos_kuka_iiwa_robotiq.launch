@@ -9,12 +9,12 @@
     <arg name="teleportation" default="false"/>
 
     <group ns="$(arg rbkairos_ns)">
-        <param if="$(arg teleportation)" 
-            name="robot_description" 
+        <param if="$(arg teleportation)"
+            name="robot_description"
             command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos_kuka_iiwa_robotiq/rbkairos_kuka_iiwa_robotiq_teleportation.xacro'
                 world_link:='0' prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>
-        <param unless="$(arg teleportation)" 
-            name="robot_description" 
+        <param unless="$(arg teleportation)"
+            name="robot_description"
             command="rosrun xacro xacro '$(find cobotics_control)/urdf/rbkairos_kuka_iiwa_robotiq/rbkairos_kuka_iiwa_robotiq.xacro' 
                 world_link:='0' prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>
         
