@@ -30,6 +30,13 @@ export GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
 roslaunch gazebo_ros empty_world.launch extra_gazebo_args:="--verbose" world_name:=$(rosls cobotics_control/worlds/factory.sdf)
 ```
 
+### Other worlds
+
+Here's a list of other worlds available. To use them, replace `cobotics_control/worlds/factory.sdf` in the above command with the desired world.
+
+- `cobotics_control/worlds/factory_02_populated.sdf`: Factory with two separate areas, one populated with moving humans, one empty
+- `cobotics_control/worlds/factory_03_populated.sdf`: Same as above, but with a wall separating both factory areas
+
 ## Spawning the Robotnik base with Kuka arm
 
 ```bash
