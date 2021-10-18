@@ -93,6 +93,8 @@ points:
 
 ```bash
 rostopic pub /rbkairos/move_gripper_controller/command trajectory_msgs/JointTrajectory "joint_names:
+    - palm_finger_1_joint
+    - palm_finger_2_joint
     - finger_1_joint_1
     - finger_1_joint_2
     - finger_1_joint_3
@@ -103,9 +105,24 @@ rostopic pub /rbkairos/move_gripper_controller/command trajectory_msgs/JointTraj
     - finger_middle_joint_2
     - finger_middle_joint_3
 points:
-    - positions: [ 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 ]
-      velocities: [ 0,0,0, 0,0,0, 0,0,0 ]
-      accelerations: [ 0,0,0, 0,0,0, 0,0,0 ]
-      effort: [ 0,0,0, 0,0,0, 0,0,0 ]
-      time_from_start: {secs: 1, nsecs: 0}"
+    - positions: [ -1000, -1000, -1000,-1000,-1000, -1000,-1000,-1000, -1000,-1000,-10 ]
+      velocities: [ 0,0, 0,0,0, 0,0,0, 0,0,0 ]
+      accelerations: [ 0,0, 0,0,0, 0,0,0, 0,0,0 ]
+      effort: [ 0,0, 0,0,0, 0,0,0, 0,0,0 ]
+      time_from_start: {secs: 0, nsecs: 5000000}
+"
 ```
+
+## Additional Gazebo startup parameters
+
+Append the following to the gazebo startup parameters to change behavior:
+
+- `gui:=false` Start without GUI
+- `physics:=bullet` Use Bullet instead of ODE as the phyiscs engine
+
+Example:
+
+```bash
+roslaunch gazebo_ros empty_world.launch extra_gazebo_args:="--verbose" world_name:=$(rosls cobotics_control/worlds/factory.sdf) gui:=false
+```
+
