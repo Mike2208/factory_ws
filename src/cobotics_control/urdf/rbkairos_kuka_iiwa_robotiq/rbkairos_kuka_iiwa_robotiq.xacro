@@ -594,7 +594,18 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
+    <!--<transmission name="palm_finger_middle_tran">
+        <robotNamespace>/iiwa</robotNamespace>
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="palm_finger_middle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="palm_finger_middle_motor">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>-->
+	
     <transmission name="finger_1_tran_1">
         <robotNamespace>/iiwa</robotNamespace>
         <type>transmission_interface/SimpleTransmission</type>
