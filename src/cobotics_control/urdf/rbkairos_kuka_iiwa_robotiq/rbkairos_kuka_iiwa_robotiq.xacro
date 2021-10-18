@@ -392,7 +392,7 @@
             <topicName>/iiwa/state/CartesianWrench</topicName>
             <jointName>iiwa_joint_7</jointName>
         </plugin>
-        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+	<!--<plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
             <arm>
                 <arm_name>iiwa</arm_name>
                 <palm_link>${robot_namespace}iiwa_link_7</palm_link>
@@ -406,7 +406,7 @@
             <release_tolerance>0.005</release_tolerance>
             <disable_collisions_on_attach>false</disable_collisions_on_attach>
             <contact_topic>__default_topic__</contact_topic>
-        </plugin>
+	</plugin>-->
     </gazebo>
     <!-- Load Gazebo lib and set the robot namespace -->
     <gazebo>
