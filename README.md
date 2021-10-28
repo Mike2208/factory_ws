@@ -46,6 +46,15 @@ source GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
 roslaunch cobotics_control spawn_rbkairos_kuka_iiwa_robotiq.launch
 ```
 
+## Spawning the Robotnik base with UR5 arm
+
+```bash
+cd <REPOSITORY_DIR>
+source devel/setup.bash
+source GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
+roslaunch cobotics_control spawn_rbkairos_ur5.launch
+```
+
 ## Controlling the Robotnik base
 
 Moving the base:
