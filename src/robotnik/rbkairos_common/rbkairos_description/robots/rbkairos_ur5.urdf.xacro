@@ -80,4 +80,12 @@
 
    <xacro:rbkairos prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)"/>
 
+  <gazebo reference="$(arg prefix)arm_shoulder_lift_joint">
+    <springReference>-3.14156</springReference>
+    <springStiffness>100.0</springStiffness>
+  </gazebo>
+  <gazebo reference="$(arg prefix)arm_shoulder_pan_joint">
+    <springReference>0</springReference>
+    <springStiffness>100.0</springStiffness>
+  </gazebo>
 </robot>
