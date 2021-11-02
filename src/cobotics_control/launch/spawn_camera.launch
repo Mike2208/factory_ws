@@ -6,9 +6,10 @@
     <arg name="R" default="0.0"/>
     <arg name="P" default="0.25"/>
     <arg name="Y" default="-1.691686"/>
+    <arg name="update_rate" default="30.0"/>
 
     <param name="~camera_description" command="rosrun xacro xacro '$(find cobotics_control)/urdf/camera/camera.xacro'
-        width:=320 height:=320"/>
+        width:=320 height:=320 update_rate:=$(arg update_rate)"/>
     <node name="camera_spawn_$(arg camera_ns)" pkg="gazebo_ros" type="spawn_model" args="-urdf -param '~camera_description' 
         -model           '$(arg camera_ns)'
         -b
