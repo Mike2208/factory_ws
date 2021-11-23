@@ -17,7 +17,7 @@ void ROSRobotPosePublisher::Load(gazebo::physics::ModelPtr model, sdf::ElementPt
 		}
 		else
 		{
-			this->_rosFrameID = this->_model->GetLink()->GetName();
+			this->_rosFrameID = this->_model->GetName() + this->_model->GetLink()->GetName();
 		}
 	}
 
