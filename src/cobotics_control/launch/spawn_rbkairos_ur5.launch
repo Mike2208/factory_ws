@@ -12,7 +12,9 @@
             command="rosrun xacro xacro '$(find rbkairos_description)/robots/rbkairos_ur5.urdf.xacro' ros_planar_move_plugin:=true prefix:='$(arg rbkairos_ns)_' robot_ns:='$(arg rbkairos_ns)'"/>        
         
         <!-- convert joint states to TF transforms for rviz, etc -->
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+            <remap from="/joint_states" to="joint_states"/>
+        </node>
 
         <!-- spawn models -->
         <node name="robotnik_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param 'robot_description' 
@@ -28,5 +30,13 @@
             <arg name="rviz_config" default="$(find cobotics_control)/config/config.rviz"/>
             <arg name="rviz_launch" default="false"/>
         </include> -->
+
+        <!-- start rbkairos_control nodes -->
+        <include file="$(find rbkairos_control)/launch/rbkairos_control.launch">
+            <arg name="robot_id" value="$(arg rbkairos_ns)"/>
+            <arg name="sim" value="true"/>
+            <arg name="sim_arm_control" default="true"/>
+            <arg name="arm_controllers" default="arm/pos_traj_controller"/>
+        </include>
     </group>
 </launch>

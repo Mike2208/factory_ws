@@ -60,10 +60,10 @@ roslaunch cobotics_control spawn_rbkairos_ur5.launch
 Moving the base:
 
 ```bash
-rostopic pub -1 /rbkairos/robotnik_base_control/cmd_vel geometry_msgs/Twist "linear:
+rostopic pub -1 /rbkairos/cmd_vel geometry_msgs/Twist "linear:
   x: 0.0    # Base Forward Velocity
   y: 0.0    # Base Sideways Velocity
-  z: 0.0    # Kuka Arm Elevation
+  z: 0.0    
 angular:
   x: 0.0
   y: 0.0
@@ -85,23 +85,28 @@ orientation:    # Base Rotation (Note: only rotation around z-axis is taken into
 ```
 
 
-## Controlling the Kuka arm
+## Controlling the UR5 arm
 
 ```bash
-rostopic pub -1 /rbkairos/move_arm_controller/command trajectory_msgs/JointTrajectory "joint_names:
-    - 'iiwa_joint_1'
-    - 'iiwa_joint_2'
-    - 'iiwa_joint_3'
-    - 'iiwa_joint_4'
-    - 'iiwa_joint_5'
-    - 'iiwa_joint_6'
-    - 'iiwa_joint_7'
+rostopic pub -1 /rbkairos/arm/pos_traj_controller/command trajectory_msgs/JointTrajectory "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+joint_names:
+- 'rbkairos_arm_elbow_joint'
+- 'rbkairos_arm_shoulder_lift_joint'
+- 'rbkairos_arm_shoulder_pan_joint'
+- 'rbkairos_arm_wrist_1_joint'
+- 'rbkairos_arm_wrist_2_joint'
+- 'rbkairos_arm_wrist_3_joint'
 points:
-    - positions: [-1.317271741096274,-0.03825659634384859,-0.06871045076758708,1.4776782454071498,1.1784731623551794,-1.3853232334327261,-1.409537799205671]
-      velocities: [0,0,0,0,0,0,0]
-      accelerations: [0,0,0,0,0,0,0]
-      effort: [0,0,0,0,0,0,0]
-      time_from_start: {secs: 1, nsecs: 5000000}"
+- positions: [2.6, -2.5, 0, -1.57, 0, 0]
+  velocities: [0, 0, 0, 0, 0, 0]
+  accelerations: [0, 0, 0, 0, 0, 0]
+  effort: [0, 0, 0, 0, 0, 0]
+  time_from_start: {secs: 5, nsecs: 0}"
 ```
 
 
@@ -141,4 +146,16 @@ Example:
 ```bash
 roslaunch gazebo_ros empty_world.launch extra_gazebo_args:="--verbose" world_name:=$(rosls cobotics_control/worlds/factory.sdf) gui:=false
 ```
+
+## Docker
+
+```bash
+cd <REPOSITORY_DIR>/docker_sim
+docker build -f Dockerfile -t promen_aid_factory_sim_controllers:latest .
+./docker_run.sh -it promen_aid_factory_sim_controllers:latest bash
+terminator -u
+export GAZEBO_MODEL_PATH=/home/ros/factory_ws/YCB_Models:$GAZEBO_MODEL_PATH
+```
+
+Then launch the world and control the robot as indicated above.
 
