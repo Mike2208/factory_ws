@@ -55,6 +55,11 @@ source GAZEBO_MODEL_PATH=<REPOSITORY_DIR>/YCB_Models:$GAZEBO_MODEL_PATH
 roslaunch cobotics_control spawn_rbkairos_ur5.launch
 ```
 
+In case of the factory worlds separated in two areas, if you want to spawn the robot in the area without humans use the following launch command:
+```bash
+roslaunch cobotics_control spawn_rbkairos_ur5.launch y:=40.0
+```
+
 ## Controlling the Robotnik base
 
 Moving the base:
