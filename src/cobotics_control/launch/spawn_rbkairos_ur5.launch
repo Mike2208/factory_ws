@@ -17,7 +17,7 @@
         </node>
 
         <!-- spawn models -->
-        <node name="robotnik_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param 'robot_description' 
+        <node name="robotnik_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param 'robot_description' 
             -model '$(arg rbkairos_ns)'
             -b
             -x '$(arg x)' -y '$(arg y)' -z '$(arg z)' 

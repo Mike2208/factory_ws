@@ -85,11 +85,11 @@
     </link>
 
   <!-- RGBD sensor for simulation, same as Kinect -->
-  <sensor_orbbec_astra_gazebo/>
+  <xacro:sensor_orbbec_astra_gazebo prefix="${prefix}" prefix_topic="${prefix_topic}" />
 
   </xacro:macro>
 
-   <xacro:macro name="sensor_orbbec_astra_gazebo">
+   <xacro:macro name="sensor_orbbec_astra_gazebo" params="prefix prefix_topic">
 
     <gazebo reference="${prefix}_link">
       <sensor type="depth" name="${prefix}_depth_sensor">
