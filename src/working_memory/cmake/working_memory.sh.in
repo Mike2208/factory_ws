@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ROS_DIR="@CMAKE_CURRENT_SOURCE_DIR@"
+
+cd $ROS_DIR
+source $ROS_DIR/venv/bin/activate
+
+cd $ROS_DIR/src/working_memory
+
+exec rosrun working_memory working_memory_main.py "$@"
