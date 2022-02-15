@@ -17,6 +17,8 @@ sudo apt install ros-noetic-object-recognition-msgs ros-noetic-moveit-core ros-n
 cd <REPOSITORY_DIR>
 source /opt/ros/noetic/setup.bash
 catkin_make -j8
+
+# If you are planning on using the working memory module, take a look at the "Working Memory Module" section below and follow the installation instructions
 ```
 
 # Execution
@@ -141,4 +143,35 @@ Example:
 ```bash
 roslaunch gazebo_ros empty_world.launch extra_gazebo_args:="--verbose" world_name:=$(rosls cobotics_control/worlds/factory.sdf) gui:=false
 ```
+
+# Working Memory Module
+
+## Installation
+
+The working memory module can be found under `src/working_memory`. 
+
+Installation requires the creation of a python venv:
+
+```
+sudo apt install python3.8-venv
+
+python3.8 -m venv <REPOSITORY_DIR>/src/working_memory/venv
+source <REPOSITORY_DIR>/src/working_memory/venv/bin/activate
+
+pip install -r  <REPOSITORY_DIR>/src/working_memory/src/working_memory/requirements.txt
+```
+
+## Execution
+
+The working memory module can be started by executing
+
+```
+./src/working_memory/scripts/working_memory.sh
+```
+
+It subscribes to `wm_human_detection` (`std_msgs/Int8`) and publishes `wm_speed` (`std_msgs/Int8`).
+
+`wm_human_detection` should receive `1` on human detection, `0` when status remains unchanged, and `-1` when no human is detected.
+
+`wm_speed` publishes `1` when the robot can move fast, and `-1` when it should move slow.
 
