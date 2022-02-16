@@ -173,5 +173,5 @@ It subscribes to `wm_human_detection` (`std_msgs/Int8`) and publishes `wm_speed`
 
 `wm_human_detection` should receive `1` on human detection, `0` when status remains unchanged, and `-1` when no human is detected.
 
-`wm_speed` publishes `1` when the robot can move fast, and `-1` when it should move slow.
+`wm_speed` publishes `-1` when the robot can move fast, and `1` when it should move slow.
 
