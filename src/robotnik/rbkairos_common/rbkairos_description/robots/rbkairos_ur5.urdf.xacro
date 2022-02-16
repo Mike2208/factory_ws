@@ -88,4 +88,12 @@
     <springReference>0</springReference>
     <springStiffness>100.0</springStiffness>
   </gazebo>
+  <gazebo>
+    <!--<static>false</static>
+    <plugin name="ROSRobotPosePublisher" filename="ROSRobotPosePublisherPlugin.so">
+      <ROSFrameID>rbkairos_base_link</ROSFrameID>
+    </plugin>-->
+    <plugin name="TeleportGzPlugin" filename="TeleportGzPlugin.so">
+    </plugin>
+  </gazebo>
 </robot>
