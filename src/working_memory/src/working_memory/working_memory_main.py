@@ -19,7 +19,7 @@ class RosWorkingMemory():
         self.human_detection = 0
 
         self.out_pub = rospy.Publisher('wm_speed', Int8, queue_size=10)
-        self.in_sub  = rospy.Subscriber('wm_human_detection', Int8)
+        self.in_sub  = rospy.Subscriber('wm_human_detection', Int8, self.human_detection_cb)
 
         self.wm = WorkingMemory(wm_type='gru')
 
