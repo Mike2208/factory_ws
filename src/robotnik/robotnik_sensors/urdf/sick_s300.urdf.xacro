@@ -52,11 +52,11 @@
 
 
 	<!-- Sick sensor sensor for simulation -->
-	<sensor_sick_s300_gazebo />
+	<xacro:sensor_sick_s300_gazebo prefix="${prefix}" prefix_topic="${prefix_topic}" gpu="${gpu}" />
 
   </xacro:macro>
 
-  <xacro:macro name="sensor_sick_s300_gazebo">
+  <xacro:macro name="sensor_sick_s300_gazebo" params="prefix prefix_topic gpu">
     <gazebo reference="${prefix}_link">
 		<xacro:if value="${gpu}">
 			<xacro:property name="ray_type" value="gpu_ray" />
