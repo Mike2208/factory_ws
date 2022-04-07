@@ -10,6 +10,7 @@
   <arg name="ros_planar_move_plugin" default="false"/>
   <arg name="sim" default="false"/>
   <arg name="sim_arm_control" default="true"/>
+  <arg name="odom_tf" default="true" />
   <arg name="arm_controllers" default="pos_traj_controller"/> <!-- controllers can be listed seprated by a blank space -->
   <arg name="sim_gripper_control" default="false"/>
   <arg name="gripper_controllers" default="gripper_controller"/> <!-- controllers can be listed seprated by a blank space -->
@@ -24,6 +25,7 @@
     <arg name="track_width" value="$(arg track_width)"/>
     <arg name="ros_planar_move_plugin" value="$(arg ros_planar_move_plugin)"/>
     <arg name="sim" value="$(arg sim)"/>
+    <arg name="odom_broadcast_tf" value="$(arg odom_tf)" />
   </include>
 
   <!-- Arm and gripper control for simulation -->
